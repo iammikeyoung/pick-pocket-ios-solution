@@ -1,5 +1,5 @@
 ![pick-pocket-ios](images/intrepid-logo.png)
-# PickPocket
+# PickPocket - ∞ - Ios Apprentice
 
 PickPocket is an app based on the game [Mastermind](ultimate-mastermind-rules.pdf). Players try to guess the correct combination of numbers to crack a lock. After each guess, players are given feedback on the number of digits in their guess that are correct or misplaced. The previous guesses a player made and and results of those guesses are also displayed. Players can either play against the computer, or try to crack the locks of other players.
 
