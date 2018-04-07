@@ -11,7 +11,9 @@ import XCTest
 
 class PickLockViewModelTests: XCTestCase {
 
-    let lock = Lock(code: "123")
+
+    static let code = "123"
+    let lock = Lock(code: PickLockViewModelTests.code)
     var viewModel: PickLockViewModel!
 
     override func setUp() {
@@ -25,8 +27,7 @@ class PickLockViewModelTests: XCTestCase {
     }
     
     func testInitialValues() {
-        XCTAssertEqual(viewModel.previousGuessHintText, "")
-        XCTAssertEqual(viewModel.previousGuessText, "")
+        XCTAssertEqual(viewModel.previousGuessCount, 0)
         XCTAssertEqual(viewModel.codeLength, "3")
         XCTAssertEqual(viewModel.lockStatusText, "🔒")
         XCTAssertEqual(viewModel.currentGuess, "")
@@ -35,22 +36,22 @@ class PickLockViewModelTests: XCTestCase {
     func testCorrectGuess() {
         viewModel.handleDigitAdded(digit: "1")
 
-        XCTAssertEqual(viewModel.previousGuessHintText, "")
-        XCTAssertEqual(viewModel.previousGuessText, "")
+        XCTAssertEqual(viewModel.previousGuessCount, 0)
         XCTAssertEqual(viewModel.lockStatusText, "🔒")
         XCTAssertEqual(viewModel.currentGuess, "1")
 
         viewModel.handleDigitAdded(digit: "2")
 
-        XCTAssertEqual(viewModel.previousGuessHintText, "")
-        XCTAssertEqual(viewModel.previousGuessText, "")
+        XCTAssertEqual(viewModel.previousGuessCount, 0)
         XCTAssertEqual(viewModel.lockStatusText, "🔒")
         XCTAssertEqual(viewModel.currentGuess, "12")
 
         viewModel.handleDigitAdded(digit: "3")
 
-        XCTAssertEqual(viewModel.previousGuessHintText, "⚫⚫⚫")
-        XCTAssertEqual(viewModel.previousGuessText, "123")
+        XCTAssertEqual(viewModel.previousGuessCount, 1)
+        let (hint, guess) = viewModel.hintAndGuess(atIndex: 0)
+        XCTAssertEqual(hint, "⚫⚫⚫")
+        XCTAssertEqual(guess, "123")
         XCTAssertEqual(viewModel.lockStatusText, "🔓")
         XCTAssertEqual(viewModel.currentGuess, "")
     }
@@ -58,22 +59,23 @@ class PickLockViewModelTests: XCTestCase {
     func testIncorrectGuess() {
         viewModel.handleDigitAdded(digit: "1")
 
-        XCTAssertEqual(viewModel.previousGuessHintText, "")
-        XCTAssertEqual(viewModel.previousGuessText, "")
+        XCTAssertEqual(viewModel.previousGuessCount, 0)
         XCTAssertEqual(viewModel.lockStatusText, "🔒")
         XCTAssertEqual(viewModel.currentGuess, "1")
 
         viewModel.handleDigitAdded(digit: "3")
 
-        XCTAssertEqual(viewModel.previousGuessHintText, "")
-        XCTAssertEqual(viewModel.previousGuessText, "")
+        XCTAssertEqual(viewModel.previousGuessCount, 0)
         XCTAssertEqual(viewModel.lockStatusText, "🔒")
         XCTAssertEqual(viewModel.currentGuess, "13")
 
         viewModel.handleDigitAdded(digit: "4")
 
-        XCTAssertEqual(viewModel.previousGuessHintText, "⚫⚪")
-        XCTAssertEqual(viewModel.previousGuessText, "134")
+        XCTAssertEqual(viewModel.previousGuessCount, 1)
+        let (hint, guess) = viewModel.hintAndGuess(atIndex: 0)
+        XCTAssertEqual(hint, "⚫⚪")
+        XCTAssertEqual(guess, "134")
+        XCTAssertEqual(viewModel.previousGuessCount, 1)
         XCTAssertEqual(viewModel.lockStatusText, "🔒")
         XCTAssertEqual(viewModel.currentGuess, "")
     }
@@ -83,16 +85,83 @@ class PickLockViewModelTests: XCTestCase {
         viewModel.handleDigitAdded(digit: "2")
         viewModel.handleDigitAdded(digit: "3")
 
-        XCTAssertEqual(viewModel.previousGuessHintText, "⚫⚫⚫")
-        XCTAssertEqual(viewModel.previousGuessText, "123")
+        XCTAssertEqual(viewModel.previousGuessCount, 1)
         XCTAssertEqual(viewModel.lockStatusText, "🔓")
         XCTAssertEqual(viewModel.currentGuess, "")
 
         viewModel.handleDigitAdded(digit: "2")
 
-        XCTAssertEqual(viewModel.previousGuessHintText, "")
-        XCTAssertEqual(viewModel.previousGuessText, "")
+        XCTAssertEqual(viewModel.previousGuessCount, 0)
         XCTAssertEqual(viewModel.lockStatusText, "🔒")
         XCTAssertEqual(viewModel.currentGuess, "2")
     }
+<<<<<<< HEAD
+=======
+
+    func testCreateResetCodeViewModel() {
+        let resetCodeViewModel = viewModel.resetCodeViewModel
+        XCTAssertEqual(resetCodeViewModel.previousCode, lock.code)
+    }
+
+    func testUpdateCode() {
+        viewModel.updateCode(newCode: "4567")
+
+        XCTAssertEqual(viewModel.previousGuessCount, 0)
+        XCTAssertEqual(viewModel.codeLength, "4")
+        XCTAssertEqual(viewModel.lockStatusText, "🔒")
+        XCTAssertEqual(viewModel.currentGuess, "")
+    }
+
+    func testManyIncorrectGuesses() {
+        let guesses = ["152", "164", "456", "243", "124", "234", "264", "564"]
+        guesses.flatMap { return $0.components(separatedBy: "") }.forEach {
+            viewModel.handleDigitAdded(digit: $0)
+        }
+
+        XCTAssertEqual(viewModel.previousGuessCount, guesses.count)
+    }
+
+    func testManyGuessesWithOneCorrect() {
+        let guesses = ["152", "164", "456", "123", "124", "234", "264", "564"]
+        guesses.flatMap { return $0.components(separatedBy: "") }.forEach {
+            viewModel.handleDigitAdded(digit: $0)
+        }
+
+        XCTAssertEqual(viewModel.previousGuessCount, 4)
+    }
+
+    func testResetWhileGuessing() {
+        let firstGuesses = ["152", "164", "456", "243", "124", "234", "264", "564"]
+        firstGuesses.flatMap { return $0.components(separatedBy: "") }.forEach {
+            viewModel.handleDigitAdded(digit: $0)
+        }
+
+        XCTAssertEqual(viewModel.previousGuessCount, firstGuesses.count)
+
+        viewModel.updateCode(newCode: "111")
+        XCTAssertEqual(viewModel.previousGuessCount, 0)
+
+        let secondGuesses = ["152", "164", "456"]
+        secondGuesses.flatMap { return $0.components(separatedBy: "") }.forEach {
+            viewModel.handleDigitAdded(digit: $0)
+        }
+        
+        XCTAssertEqual(viewModel.previousGuessCount, secondGuesses.count)
+    }
+
+    func testClear() {
+        let guesses = ["152", "164", "456", "243", "124", "234", "264", "564"]
+        guesses.flatMap { return $0.components(separatedBy: "") }.forEach {
+            viewModel.handleDigitAdded(digit: $0)
+        }
+
+        XCTAssertEqual(viewModel.previousGuessCount, guesses.count)
+
+        viewModel.handlePreviousGuessesCleared()
+
+        XCTAssertEqual(viewModel.previousGuessCount, 0)
+        XCTAssertEqual(viewModel.lockStatusText, "🔒")
+        XCTAssertEqual(viewModel.currentGuess, "")
+    }
+>>>>>>> a15ed02... Implement Step 3 Part 2b: Add list of previous guesses, clear button, and update tests
 }

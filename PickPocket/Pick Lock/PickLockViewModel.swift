@@ -6,28 +6,23 @@
 //  Copyright © 2018 Intrepid Pursuits. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct PickLockViewModel {
 
     private typealias PreviousGuess = (guess: String, result: GuessResult)
 
     private let lock: Lock
-
-    private var previousGuess: PreviousGuess?
+    private var previousGuesses = [PreviousGuess]()
 
     private(set) var currentGuess = ""
 
     private var isUnlocked: Bool {
-        return previousGuess?.result.isCorrect(codeLength: lock.codeLength) ?? false
+        return previousGuesses.first?.result.isCorrect(codeLength: lock.codeLength) ?? false
     }
 
-    var previousGuessHintText: String {
-        return previousGuess?.result.hintText ?? ""
-    }
-
-    var previousGuessText: String {
-        return previousGuess?.guess ?? ""
+    var previousGuessCount: Int {
+        return previousGuesses.count
     }
 
     var codeLength: String {
@@ -38,23 +33,38 @@ struct PickLockViewModel {
         return isUnlocked ? "🔓" : "🔒"
     }
 
+    var readoutBackgroundColor: UIColor {
+        return isUnlocked ? UIColor.lightGray : UIColor.init(white: 0.9, alpha: 1)
+    }
+
     init(lock: Lock = Lock(code: "123")) {
         self.lock = lock
     }
 
     mutating func handleDigitAdded(digit: String) {
-        if isUnlocked {
-            previousGuess = nil
-            currentGuess = ""
-        }
+        guard !isUnlocked else { return }
 
         currentGuess += digit
 
         if currentGuess.count == lock.codeLength {
             let result = lock.submit(guess: currentGuess)
-            previousGuess = (guess: currentGuess, result: result)
+            previousGuesses.insert(PreviousGuess(guess: currentGuess, result: result), at: 0)
             currentGuess = ""
         }
+    }
+
+    mutating func handlePreviousGuessesCleared() {
+        reset()
+    }
+
+    func hintAndGuess(atIndex index: Int) -> (hint: String, guess: String) {
+        let guess = previousGuesses[index]
+        return (hint: guess.result.hintText, guess: guess.guess)
+    }
+
+    private mutating func reset() {
+        previousGuesses = []
+        currentGuess = ""
     }
 }
 

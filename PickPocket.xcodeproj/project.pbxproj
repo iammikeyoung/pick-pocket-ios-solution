@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A46D98E4207954E5004D37A5 /* PickLockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46D98E2207954E5004D37A5 /* PickLockTableViewCell.swift */; };
+		A46D98E5207954E5004D37A5 /* PickLockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46D98E3207954E5004D37A5 /* PickLockTableViewCell.xib */; };
 		A481C951206593F20051CA0E /* PickLockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A481C950206593F20051CA0E /* PickLockViewController.xib */; };
 		A481C9752066C48B0051CA0E /* KeypadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481C9742066C48B0051CA0E /* KeypadButton.swift */; };
 		A481C9772066C5BF0051CA0E /* PickLockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481C9762066C5BF0051CA0E /* PickLockViewModel.swift */; };
@@ -31,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A46D98E2207954E5004D37A5 /* PickLockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PickLockTableViewCell.swift; path = ../View/PickLockTableViewCell.swift; sourceTree = "<group>"; };
+		A46D98E3207954E5004D37A5 /* PickLockTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PickLockTableViewCell.xib; path = ../View/PickLockTableViewCell.xib; sourceTree = "<group>"; };
 		A481C950206593F20051CA0E /* PickLockViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickLockViewController.xib; sourceTree = "<group>"; };
 		A481C9742066C48B0051CA0E /* KeypadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadButton.swift; sourceTree = "<group>"; };
 		A481C9762066C5BF0051CA0E /* PickLockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickLockViewModel.swift; sourceTree = "<group>"; };
@@ -66,10 +70,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A481C9732066C47C0051CA0E /* View */ = {
-			isa = PBXGroup;
-			children = (
-				A481C9742066C48B0051CA0E /* KeypadButton.swift */,
+        A46D98E6207954EA004D37A5 /* View */ = {
+            isa = PBXGroup;
+            children = (
+                A481C9742066C48B0051CA0E /* KeypadButton.swift */,
+				A46D98E2207954E5004D37A5 /* PickLockTableViewCell.swift */,
+				A46D98E3207954E5004D37A5 /* PickLockTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,7 +124,7 @@
 		A4B0A90E20640A45000FB6AA /* Pick Lock */ = {
 			isa = PBXGroup;
 			children = (
-				A481C9732066C47C0051CA0E /* View */,
+				A46D98E6207954EA004D37A5 /* View */,
 				A481C9762066C5BF0051CA0E /* PickLockViewModel.swift */,
 				A4B0A8F02064096D000FB6AA /* PickLockViewController.swift */,
 				A481C950206593F20051CA0E /* PickLockViewController.xib */,
@@ -221,6 +227,7 @@
 				A481C951206593F20051CA0E /* PickLockViewController.xib in Resources */,
 				A4B0A8F92064096D000FB6AA /* LaunchScreen.storyboard in Resources */,
 				A4B0A8F62064096D000FB6AA /* Assets.xcassets in Resources */,
+				A46D98E5207954E5004D37A5 /* PickLockTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +249,7 @@
 				A481C9752066C48B0051CA0E /* KeypadButton.swift in Sources */,
 				A4B0A91120640B12000FB6AA /* Lock.swift in Sources */,
 				A4B0A91320640B31000FB6AA /* GuessResult.swift in Sources */,
+                A46D98E4207954E5004D37A5 /* PickLockTableViewCell.swift in Sources */,
 				A481C9772066C5BF0051CA0E /* PickLockViewModel.swift in Sources */,
 				A4B0A8EF2064096D000FB6AA /* AppDelegate.swift in Sources */,
 			);
