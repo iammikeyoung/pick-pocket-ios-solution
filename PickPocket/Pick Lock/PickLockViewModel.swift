@@ -53,7 +53,7 @@ struct PickLockViewModel {
 
         currentGuess += digit
 
-        if currentGuess.count == lock.codeLength {
+        if currentGuess.count >= lock.codeLength {
             let result = lock.submit(guess: currentGuess)
             previousGuess = (guess: currentGuess, result: result)
             currentGuess = ""
