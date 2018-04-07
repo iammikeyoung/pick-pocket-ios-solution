@@ -95,4 +95,19 @@ class PickLockViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.lockStatusText, "🔒")
         XCTAssertEqual(viewModel.currentGuess, "2")
     }
+
+    func testCreateResetCodeViewModel() {
+        let resetCodeViewModel = viewModel.resetCodeViewModel
+        XCTAssertEqual(resetCodeViewModel.previousCode, lock.code)
+    }
+
+    func testUpdateCode() {
+        viewModel.updateCode(newCode: "4567")
+
+        XCTAssertEqual(viewModel.previousGuessHintText, "")
+        XCTAssertEqual(viewModel.previousGuessText, "")
+        XCTAssertEqual(viewModel.codeLength, "4")
+        XCTAssertEqual(viewModel.lockStatusText, "🔒")
+        XCTAssertEqual(viewModel.currentGuess, "")
+    }
 }

@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A46D98DB2079362B004D37A5 /* ResetCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46D98D92079362B004D37A5 /* ResetCodeViewController.swift */; };
-		A46D98DC2079362B004D37A5 /* ResetCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46D98DA2079362B004D37A5 /* ResetCodeViewController.xib */; };
-		A46D98DF20793E22004D37A5 /* ResetCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46D98DE20793E22004D37A5 /* ResetCodeViewModel.swift */; };
 		016A5E833494BE2759F947D2 /* Pods_PickPocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612107AE3AD6C91D3754DAB2 /* Pods_PickPocket.framework */; };
 		386C3651917C4BDA13099F6E /* Pods_PickPocketTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF5CA23B298537D95354A03 /* Pods_PickPocketTests.framework */; };
 		A46D98D52079301F004D37A5 /* KeypadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46D98D42079301F004D37A5 /* KeypadView.swift */; };
 		A46D98D820793036004D37A5 /* KeypadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46D98D720793036004D37A5 /* KeypadView.xib */; };
+		A46D98DB2079362B004D37A5 /* ResetCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46D98D92079362B004D37A5 /* ResetCodeViewController.swift */; };
+		A46D98DC2079362B004D37A5 /* ResetCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46D98DA2079362B004D37A5 /* ResetCodeViewController.xib */; };
+		A46D98DF20793E22004D37A5 /* ResetCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46D98DE20793E22004D37A5 /* ResetCodeViewModel.swift */; };
+		A46D98E120794E31004D37A5 /* ResetCodeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46D98E020794E31004D37A5 /* ResetCodeViewModelTests.swift */; };
 		A481C951206593F20051CA0E /* PickLockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A481C950206593F20051CA0E /* PickLockViewController.xib */; };
 		A481C9772066C5BF0051CA0E /* PickLockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481C9762066C5BF0051CA0E /* PickLockViewModel.swift */; };
 		A4B0A8EF2064096D000FB6AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0A8EE2064096D000FB6AA /* AppDelegate.swift */; };
@@ -37,9 +38,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A46D98D92079362B004D37A5 /* ResetCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetCodeViewController.swift; sourceTree = "<group>"; };
-		A46D98DA2079362B004D37A5 /* ResetCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetCodeViewController.xib; sourceTree = "<group>"; };
-		A46D98DE20793E22004D37A5 /* ResetCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetCodeViewModel.swift; sourceTree = "<group>"; };
 		123716255EBE3415D9AEFDC9 /* Pods-PickPocketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickPocketTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickPocketTests/Pods-PickPocketTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3AF5CA23B298537D95354A03 /* Pods_PickPocketTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickPocketTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		612107AE3AD6C91D3754DAB2 /* Pods_PickPocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickPocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +45,10 @@
 		9B9F81F4BCDBDD258914A53B /* Pods-PickPocket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickPocket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickPocket/Pods-PickPocket.debug.xcconfig"; sourceTree = "<group>"; };
 		A46D98D42079301F004D37A5 /* KeypadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadView.swift; sourceTree = "<group>"; };
 		A46D98D720793036004D37A5 /* KeypadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeypadView.xib; sourceTree = "<group>"; };
+		A46D98D92079362B004D37A5 /* ResetCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetCodeViewController.swift; sourceTree = "<group>"; };
+		A46D98DA2079362B004D37A5 /* ResetCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetCodeViewController.xib; sourceTree = "<group>"; };
+		A46D98DE20793E22004D37A5 /* ResetCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetCodeViewModel.swift; sourceTree = "<group>"; };
+		A46D98E020794E31004D37A5 /* ResetCodeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetCodeViewModelTests.swift; sourceTree = "<group>"; };
 		A481C950206593F20051CA0E /* PickLockViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickLockViewController.xib; sourceTree = "<group>"; };
 		A481C9762066C5BF0051CA0E /* PickLockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickLockViewModel.swift; sourceTree = "<group>"; };
 		A4B0A8EB2064096D000FB6AA /* PickPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,16 +86,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A46D98DD2079362E004D37A5 /* Reset Code */ = {
-			isa = PBXGroup;
-			children = (
-				A46D98DE20793E22004D37A5 /* ResetCodeViewModel.swift */,
-				A46D98D92079362B004D37A5 /* ResetCodeViewController.swift */,
-				A46D98DA2079362B004D37A5 /* ResetCodeViewController.xib */,
-			);
-			path = "Reset Code";
-            sourceTree = "<group>";
-        };
 		7AC68CEAFCA47A0406AA02D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +113,16 @@
 				A46D98D720793036004D37A5 /* KeypadView.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A46D98DD2079362E004D37A5 /* Reset Code */ = {
+			isa = PBXGroup;
+			children = (
+				A46D98DE20793E22004D37A5 /* ResetCodeViewModel.swift */,
+				A46D98D92079362B004D37A5 /* ResetCodeViewController.swift */,
+				A46D98DA2079362B004D37A5 /* ResetCodeViewController.xib */,
+			);
+			path = "Reset Code";
 			sourceTree = "<group>";
 		};
 		A4B0A8E22064096D000FB6AA = {
@@ -163,6 +165,7 @@
 			children = (
 				A4B0A9032064096D000FB6AA /* LockTests.swift */,
 				A4C8CD1E2075BCA20084633F /* PickLockViewModelTests.swift */,
+				A46D98E020794E31004D37A5 /* ResetCodeViewModelTests.swift */,
 				A4B0A9052064096D000FB6AA /* Info.plist */,
 			);
 			path = PickPocketTests;
@@ -419,6 +422,7 @@
 			files = (
 				A4C8CD1F2075BCA20084633F /* PickLockViewModelTests.swift in Sources */,
 				A4B0A9042064096D000FB6AA /* LockTests.swift in Sources */,
+				A46D98E120794E31004D37A5 /* ResetCodeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
