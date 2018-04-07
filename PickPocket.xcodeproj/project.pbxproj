@@ -15,6 +15,8 @@
 		A46D98DC2079362B004D37A5 /* ResetCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46D98DA2079362B004D37A5 /* ResetCodeViewController.xib */; };
 		A46D98DF20793E22004D37A5 /* ResetCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46D98DE20793E22004D37A5 /* ResetCodeViewModel.swift */; };
 		A46D98E120794E31004D37A5 /* ResetCodeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46D98E020794E31004D37A5 /* ResetCodeViewModelTests.swift */; };
+		A46D98E4207954E5004D37A5 /* PickLockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46D98E2207954E5004D37A5 /* PickLockTableViewCell.swift */; };
+		A46D98E5207954E5004D37A5 /* PickLockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46D98E3207954E5004D37A5 /* PickLockTableViewCell.xib */; };
 		A481C951206593F20051CA0E /* PickLockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A481C950206593F20051CA0E /* PickLockViewController.xib */; };
 		A481C9772066C5BF0051CA0E /* PickLockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481C9762066C5BF0051CA0E /* PickLockViewModel.swift */; };
 		A4B0A8EF2064096D000FB6AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0A8EE2064096D000FB6AA /* AppDelegate.swift */; };
@@ -49,6 +51,8 @@
 		A46D98DA2079362B004D37A5 /* ResetCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetCodeViewController.xib; sourceTree = "<group>"; };
 		A46D98DE20793E22004D37A5 /* ResetCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetCodeViewModel.swift; sourceTree = "<group>"; };
 		A46D98E020794E31004D37A5 /* ResetCodeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetCodeViewModelTests.swift; sourceTree = "<group>"; };
+		A46D98E2207954E5004D37A5 /* PickLockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PickLockTableViewCell.swift; path = ../View/PickLockTableViewCell.swift; sourceTree = "<group>"; };
+		A46D98E3207954E5004D37A5 /* PickLockTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PickLockTableViewCell.xib; path = ../View/PickLockTableViewCell.xib; sourceTree = "<group>"; };
 		A481C950206593F20051CA0E /* PickLockViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickLockViewController.xib; sourceTree = "<group>"; };
 		A481C9762066C5BF0051CA0E /* PickLockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickLockViewModel.swift; sourceTree = "<group>"; };
 		A4B0A8EB2064096D000FB6AA /* PickPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +129,15 @@
 			path = "Reset Code";
 			sourceTree = "<group>";
 		};
+		A46D98E6207954EA004D37A5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A46D98E2207954E5004D37A5 /* PickLockTableViewCell.swift */,
+				A46D98E3207954E5004D37A5 /* PickLockTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A4B0A8E22064096D000FB6AA = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +187,7 @@
 		A4B0A90E20640A45000FB6AA /* Pick Lock */ = {
 			isa = PBXGroup;
 			children = (
+				A46D98E6207954EA004D37A5 /* View */,
 				A481C9762066C5BF0051CA0E /* PickLockViewModel.swift */,
 				A4B0A8F02064096D000FB6AA /* PickLockViewController.swift */,
 				A481C950206593F20051CA0E /* PickLockViewController.xib */,
@@ -284,6 +298,7 @@
 				A46D98DC2079362B004D37A5 /* ResetCodeViewController.xib in Resources */,
 				A4B0A8F92064096D000FB6AA /* LaunchScreen.storyboard in Resources */,
 				A4B0A8F62064096D000FB6AA /* Assets.xcassets in Resources */,
+				A46D98E5207954E5004D37A5 /* PickLockTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +426,7 @@
 				A4B0A91120640B12000FB6AA /* Lock.swift in Sources */,
 				A4B0A91320640B31000FB6AA /* GuessResult.swift in Sources */,
 				A46D98DF20793E22004D37A5 /* ResetCodeViewModel.swift in Sources */,
+				A46D98E4207954E5004D37A5 /* PickLockTableViewCell.swift in Sources */,
 				A481C9772066C5BF0051CA0E /* PickLockViewModel.swift in Sources */,
 				A4B0A8EF2064096D000FB6AA /* AppDelegate.swift in Sources */,
 			);
