@@ -7,21 +7,35 @@
 //
 
 import UIKit
+import Intrepid
 
-final class PickLockViewController: UIViewController, ResetCodeViewControllerDelegate {
+final class PickLockViewController: UIViewController, ResetCodeViewControllerDelegate, KeypadViewDelegate {
 
     @IBOutlet private weak var previousGuessHintLabel: UILabel!
     @IBOutlet private weak var previousGuessLabel: UILabel!
     @IBOutlet private weak var lockStatusLabel: UILabel!
     @IBOutlet private weak var codeLengthLabel: UILabel!
     @IBOutlet private weak var guessLabel: UILabel!
+    @IBOutlet private weak var keypadContainerView: UIView!
+
+    private lazy var keypadView = KeypadView.ip_fromNib()
 
     private var viewModel = PickLockViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         navigationController?.isNavigationBarHidden = true
+
+        setupKeypadView()
         updateUI()
+    }
+
+    private func setupKeypadView() {
+        keypadView.delegate = self
+
+        keypadContainerView.addSubview(keypadView)
+        keypadContainerView.constrainView(toAllEdges: keypadView)
     }
 
     private func updateUI() {
@@ -40,15 +54,17 @@ final class PickLockViewController: UIViewController, ResetCodeViewControllerDel
         navigationController?.pushViewController(resetCodeViewController, animated: true)
     }
 
-    @IBAction func handleKeypadButtonPressed(_ sender: KeypadButton) {
-        viewModel.handleDigitAdded(digit: sender.digit)
-        updateUI()
-    }
-
     // MARK: - ResetCodeViewControllerDelegate
 
     func resetCodeViewController(_ viewController: ResetCodeViewController, didSetNewCode newCode: String) {
         viewModel.updateCode(newCode: newCode)
+        updateUI()
+    }
+
+    // MARK: - KeypadViewDelegate
+
+    func keypadView(_ view: KeypadView, didPressDigit digit: String) {
+        viewModel.handleDigitAdded(digit: digit)
         updateUI()
     }
 }

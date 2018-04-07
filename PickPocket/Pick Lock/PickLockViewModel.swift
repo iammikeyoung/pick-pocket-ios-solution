@@ -47,8 +47,7 @@ struct PickLockViewModel {
 
     mutating func handleDigitAdded(digit: String) {
         if isUnlocked {
-            previousGuess = nil
-            currentGuess = ""
+            reset()
         }
 
         currentGuess += digit
@@ -60,8 +59,14 @@ struct PickLockViewModel {
         }
     }
 
+    private mutating func reset() {
+        previousGuess = nil
+        currentGuess = ""
+    }
+
     mutating func updateCode(newCode: String) {
         lock = Lock(code: newCode)
+        reset()
     }
 }
 

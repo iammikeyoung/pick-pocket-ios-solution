@@ -12,8 +12,9 @@
 		A46D98DF20793E22004D37A5 /* ResetCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46D98DE20793E22004D37A5 /* ResetCodeViewModel.swift */; };
 		016A5E833494BE2759F947D2 /* Pods_PickPocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612107AE3AD6C91D3754DAB2 /* Pods_PickPocket.framework */; };
 		386C3651917C4BDA13099F6E /* Pods_PickPocketTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF5CA23B298537D95354A03 /* Pods_PickPocketTests.framework */; };
+		A46D98D52079301F004D37A5 /* KeypadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46D98D42079301F004D37A5 /* KeypadView.swift */; };
+		A46D98D820793036004D37A5 /* KeypadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46D98D720793036004D37A5 /* KeypadView.xib */; };
 		A481C951206593F20051CA0E /* PickLockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A481C950206593F20051CA0E /* PickLockViewController.xib */; };
-		A481C9752066C48B0051CA0E /* KeypadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481C9742066C48B0051CA0E /* KeypadButton.swift */; };
 		A481C9772066C5BF0051CA0E /* PickLockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481C9762066C5BF0051CA0E /* PickLockViewModel.swift */; };
 		A4B0A8EF2064096D000FB6AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0A8EE2064096D000FB6AA /* AppDelegate.swift */; };
 		A4B0A8F12064096D000FB6AA /* PickLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0A8F02064096D000FB6AA /* PickLockViewController.swift */; };
@@ -44,8 +45,9 @@
 		612107AE3AD6C91D3754DAB2 /* Pods_PickPocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickPocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7716BBB1A39954D04B1BC5E6 /* Pods-PickPocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickPocket.release.xcconfig"; path = "Pods/Target Support Files/Pods-PickPocket/Pods-PickPocket.release.xcconfig"; sourceTree = "<group>"; };
 		9B9F81F4BCDBDD258914A53B /* Pods-PickPocket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickPocket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickPocket/Pods-PickPocket.debug.xcconfig"; sourceTree = "<group>"; };
+		A46D98D42079301F004D37A5 /* KeypadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadView.swift; sourceTree = "<group>"; };
+		A46D98D720793036004D37A5 /* KeypadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeypadView.xib; sourceTree = "<group>"; };
 		A481C950206593F20051CA0E /* PickLockViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickLockViewController.xib; sourceTree = "<group>"; };
-		A481C9742066C48B0051CA0E /* KeypadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadButton.swift; sourceTree = "<group>"; };
 		A481C9762066C5BF0051CA0E /* PickLockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickLockViewModel.swift; sourceTree = "<group>"; };
 		A4B0A8EB2064096D000FB6AA /* PickPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B0A8EE2064096D000FB6AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,10 +114,11 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		A481C9732066C47C0051CA0E /* View */ = {
+		A46D98D620793024004D37A5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A481C9742066C48B0051CA0E /* KeypadButton.swift */,
+				A46D98D42079301F004D37A5 /* KeypadView.swift */,
+				A46D98D720793036004D37A5 /* KeypadView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				A4B0A8EE2064096D000FB6AA /* AppDelegate.swift */,
+				A46D98D620793024004D37A5 /* View */,
 				A4B0A90F20640AFB000FB6AA /* Models */,
 				A4B0A90E20640A45000FB6AA /* Pick Lock */,
 				A46D98DD2079362E004D37A5 /* Reset Code */,
@@ -167,7 +171,6 @@
 		A4B0A90E20640A45000FB6AA /* Pick Lock */ = {
 			isa = PBXGroup;
 			children = (
-				A481C9732066C47C0051CA0E /* View */,
 				A481C9762066C5BF0051CA0E /* PickLockViewModel.swift */,
 				A4B0A8F02064096D000FB6AA /* PickLockViewController.swift */,
 				A481C950206593F20051CA0E /* PickLockViewController.xib */,
@@ -273,6 +276,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A46D98D820793036004D37A5 /* KeypadView.xib in Resources */,
 				A481C951206593F20051CA0E /* PickLockViewController.xib in Resources */,
 				A46D98DC2079362B004D37A5 /* ResetCodeViewController.xib in Resources */,
 				A4B0A8F92064096D000FB6AA /* LaunchScreen.storyboard in Resources */,
@@ -399,8 +403,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4B0A8F12064096D000FB6AA /* PickLockViewController.swift in Sources */,
-				A481C9752066C48B0051CA0E /* KeypadButton.swift in Sources */,
 				A46D98DB2079362B004D37A5 /* ResetCodeViewController.swift in Sources */,
+				A46D98D52079301F004D37A5 /* KeypadView.swift in Sources */,
 				A4B0A91120640B12000FB6AA /* Lock.swift in Sources */,
 				A4B0A91320640B31000FB6AA /* GuessResult.swift in Sources */,
 				A46D98DF20793E22004D37A5 /* ResetCodeViewModel.swift in Sources */,

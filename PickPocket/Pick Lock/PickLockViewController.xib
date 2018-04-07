@@ -16,6 +16,7 @@
             <connections>
                 <outlet property="codeLengthLabel" destination="dfW-j2-rgd" id="kKa-mO-rek"/>
                 <outlet property="guessLabel" destination="OU5-TI-eU1" id="INz-Pc-akY"/>
+                <outlet property="keypadContainerView" destination="5bl-fw-9iR" id="gdY-GK-Jns"/>
                 <outlet property="lockStatusLabel" destination="Fer-xW-09u" id="4Rh-rg-uBe"/>
                 <outlet property="previousGuessHintLabel" destination="kxJ-m6-d3P" id="Z5s-8m-HOJ"/>
                 <outlet property="previousGuessLabel" destination="gyM-Zj-Yai" id="sCM-qI-4o1"/>
@@ -28,50 +29,50 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⚫⚪" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxJ-m6-d3P">
-                    <rect key="frame" x="64" y="340" width="38" height="16"/>
+                    <rect key="frame" x="64" y="337" width="38" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="134" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyM-Zj-Yai">
-                    <rect key="frame" x="266.5" y="337.5" width="28.5" height="20.5"/>
+                    <rect key="frame" x="266.5" y="334.5" width="28.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lkb-BN-5Tv" userLabel="Hairline View">
-                    <rect key="frame" x="0.0" y="386" width="375" height="1"/>
+                    <rect key="frame" x="0.0" y="383" width="375" height="1"/>
                     <color key="backgroundColor" red="0.70588235290000001" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="Bqz-jf-i9I"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UsD-wr-RDW">
-                    <rect key="frame" x="16" y="411" width="343" height="64"/>
+                    <rect key="frame" x="16" y="408" width="343" height="65"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="🔒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fer-xW-09u">
-                            <rect key="frame" x="12" y="12" width="38" height="41"/>
+                            <rect key="frame" x="12" y="12.5" width="38" height="41"/>
                             <fontDescription key="fontDescription" type="system" pointSize="34"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfW-j2-rgd">
-                            <rect key="frame" x="27" y="31" width="8.5" height="16"/>
+                            <rect key="frame" x="27" y="31.5" width="8.5" height="16"/>
                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU5-TI-eU1">
-                            <rect key="frame" x="142.5" y="12" width="57" height="41"/>
+                            <rect key="frame" x="142.5" y="12.5" width="57" height="41"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="34"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Dm-4O-XUq">
-                            <rect key="frame" x="275" y="0.0" width="68" height="64"/>
+                            <rect key="frame" x="275" y="0.0" width="68" height="65"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udY-zG-rOh">
-                                    <rect key="frame" x="15" y="5.5" width="38" height="53"/>
+                                    <rect key="frame" x="15" y="6.5" width="38" height="53"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                     <state key="normal" title="🔄"/>
                                     <connections>
@@ -102,118 +103,29 @@
                         <constraint firstItem="Fer-xW-09u" firstAttribute="centerY" secondItem="UsD-wr-RDW" secondAttribute="centerY" id="xod-Nk-IQX"/>
                     </constraints>
                 </view>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="DQQ-vv-r9f">
-                    <rect key="frame" x="16" y="499" width="343" height="144"/>
-                    <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="jYf-z4-ke9">
-                            <rect key="frame" x="0.0" y="0.0" width="343" height="64"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icO-pp-Qel" userLabel="KeypadButton" customClass="KeypadButton" customModule="PickPocket" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="103.5" height="64"/>
-                                    <color key="backgroundColor" red="0.70588235290000001" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="1"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="digit" value="1"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="handleKeypadButtonPressed:" destination="-1" eventType="touchUpInside" id="40N-qM-fDn"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqe-9t-TfV" userLabel="KeypadButton" customClass="KeypadButton" customModule="PickPocket" customModuleProvider="target">
-                                    <rect key="frame" x="119.5" y="0.0" width="104" height="64"/>
-                                    <color key="backgroundColor" red="0.70588235290000001" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="2"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="digit" value="2"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="handleKeypadButtonPressed:" destination="-1" eventType="touchUpInside" id="alg-DO-GGg"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HS9-wr-rcL" userLabel="KeypadButton" customClass="KeypadButton" customModule="PickPocket" customModuleProvider="target">
-                                    <rect key="frame" x="239.5" y="0.0" width="103.5" height="64"/>
-                                    <color key="backgroundColor" red="0.70588235290000001" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="3"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="digit" value="3"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="handleKeypadButtonPressed:" destination="-1" eventType="touchUpInside" id="xyh-9K-Eai"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                        </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="goS-ic-TWj">
-                            <rect key="frame" x="0.0" y="80" width="343" height="64"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVe-Iy-Z09" userLabel="KeypadButton" customClass="KeypadButton" customModule="PickPocket" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="103.5" height="64"/>
-                                    <color key="backgroundColor" red="0.70588235290000001" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="4"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="digit" value="4"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="handleKeypadButtonPressed:" destination="-1" eventType="touchUpInside" id="XYQ-RP-N34"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNa-jm-lB0" userLabel="KeypadButton" customClass="KeypadButton" customModule="PickPocket" customModuleProvider="target">
-                                    <rect key="frame" x="119.5" y="0.0" width="104" height="64"/>
-                                    <color key="backgroundColor" red="0.70588235290000001" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="5"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="digit" value="5"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="handleKeypadButtonPressed:" destination="-1" eventType="touchUpInside" id="wHu-CE-su7"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAn-BH-a4Y" userLabel="KeypadButton" customClass="KeypadButton" customModule="PickPocket" customModuleProvider="target">
-                                    <rect key="frame" x="239.5" y="0.0" width="103.5" height="64"/>
-                                    <color key="backgroundColor" red="0.70588235290000001" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="6"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="digit" value="6"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="handleKeypadButtonPressed:" destination="-1" eventType="touchUpInside" id="Zcu-DI-nbI"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                        </stackView>
-                    </subviews>
-                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5bl-fw-9iR">
+                    <rect key="frame" x="16" y="497" width="343" height="146"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="lkb-BN-5Tv" firstAttribute="top" secondItem="gyM-Zj-Yai" secondAttribute="bottom" constant="28" id="1Nb-a9-gLQ"/>
-                <constraint firstItem="UsD-wr-RDW" firstAttribute="height" secondItem="icO-pp-Qel" secondAttribute="height" id="8bP-kQ-mYo"/>
+                <constraint firstItem="5bl-fw-9iR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="9Hg-dZ-TuB"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lkb-BN-5Tv" secondAttribute="trailing" id="9d3-qB-QzH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gyM-Zj-Yai" secondAttribute="trailing" constant="80" id="A1w-tX-yFP"/>
                 <constraint firstItem="lkb-BN-5Tv" firstAttribute="top" secondItem="kxJ-m6-d3P" secondAttribute="bottom" constant="30" id="DLF-An-c14"/>
-                <constraint firstItem="UsD-wr-RDW" firstAttribute="leading" secondItem="DQQ-vv-r9f" secondAttribute="leading" id="Fs7-Kc-NxB"/>
-                <constraint firstItem="UsD-wr-RDW" firstAttribute="trailing" secondItem="DQQ-vv-r9f" secondAttribute="trailing" id="Hkf-nF-N4u"/>
-                <constraint firstItem="lkb-BN-5Tv" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" multiplier="1.125" id="XqG-qr-qrl"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DQQ-vv-r9f" secondAttribute="bottom" constant="24" id="dFl-zP-gVe"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DQQ-vv-r9f" secondAttribute="trailing" constant="16" id="fBt-Sk-UEe"/>
+                <constraint firstItem="UsD-wr-RDW" firstAttribute="trailing" secondItem="5bl-fw-9iR" secondAttribute="trailing" id="Hs2-UZ-xsg"/>
+                <constraint firstItem="5bl-fw-9iR" firstAttribute="top" secondItem="UsD-wr-RDW" secondAttribute="bottom" constant="24" id="X18-BA-Qqo"/>
+                <constraint firstItem="lkb-BN-5Tv" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.15" id="XqG-qr-qrl"/>
+                <constraint firstItem="5bl-fw-9iR" firstAttribute="height" secondItem="UsD-wr-RDW" secondAttribute="height" multiplier="2" constant="16" id="eEF-ki-823"/>
                 <constraint firstItem="UsD-wr-RDW" firstAttribute="top" secondItem="lkb-BN-5Tv" secondAttribute="bottom" constant="24" id="idK-F9-azC"/>
-                <constraint firstItem="DQQ-vv-r9f" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="jU5-hU-nsp"/>
-                <constraint firstItem="DQQ-vv-r9f" firstAttribute="top" secondItem="UsD-wr-RDW" secondAttribute="bottom" constant="24" id="uVu-Lf-gES"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="5bl-fw-9iR" secondAttribute="bottom" constant="24" id="uSZ-6U-QxL"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5bl-fw-9iR" secondAttribute="trailing" constant="16" id="ucT-84-5uw"/>
                 <constraint firstItem="kxJ-m6-d3P" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="64" id="vl7-W2-1fQ"/>
                 <constraint firstItem="lkb-BN-5Tv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="z0b-7z-1Uk"/>
+                <constraint firstItem="UsD-wr-RDW" firstAttribute="leading" secondItem="5bl-fw-9iR" secondAttribute="leading" id="zpL-Or-iuk"/>
             </constraints>
+            <nil key="simulatedTopBarMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>

@@ -9,16 +9,26 @@
 import Foundation
 
 struct ResetCodeViewModel {
+    private struct Constants {
+        static let codeLength = 3
+    }
+
     let previousCode: String
 
     private(set) var currentCode = ""
+
+    var isBackButtonEnabled: Bool {
+        return currentCode.count == Constants.codeLength
+    }
 
     init(code: String) {
         previousCode = code
     }
 
     mutating func handleDigitAdded(digit: String) {
-        currentCode += digit
+        if currentCode.count < Constants.codeLength {
+            currentCode += digit
+        }
     }
 
     mutating func handleLastDigitRemoved() {
