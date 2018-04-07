@@ -74,6 +74,9 @@
                                     <rect key="frame" x="15" y="5.5" width="38" height="53"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                     <state key="normal" title="🔄"/>
+                                    <connections>
+                                        <action selector="handleResetButtonPressed:" destination="-1" eventType="touchUpInside" id="Wxs-tT-BuA"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="0.70588235290000001" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>

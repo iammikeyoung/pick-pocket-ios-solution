@@ -9,7 +9,7 @@
 import Foundation
 
 struct Lock {
-    private let code: String
+    let code: String
 
     var codeLength: Int {
         return code.count

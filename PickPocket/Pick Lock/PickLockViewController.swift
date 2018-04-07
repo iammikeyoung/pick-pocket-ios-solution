@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class PickLockViewController: UIViewController {
+final class PickLockViewController: UIViewController, ResetCodeViewControllerDelegate {
 
     @IBOutlet private weak var previousGuessHintLabel: UILabel!
     @IBOutlet private weak var previousGuessLabel: UILabel!
@@ -20,8 +20,24 @@ final class PickLockViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        codeLengthLabel.text = viewModel.codeLength
+        navigationController?.isNavigationBarHidden = true
         updateUI()
+    }
+
+    private func updateUI() {
+        codeLengthLabel.text = viewModel.codeLength
+        previousGuessHintLabel.text = viewModel.previousGuessHintText
+        previousGuessLabel.text = viewModel.previousGuessText
+        lockStatusLabel.text = viewModel.lockStatusText
+        guessLabel.text = viewModel.currentGuess
+    }
+
+    // MARK: - Actions
+
+    @IBAction func handleResetButtonPressed(_ sender: UIButton) {
+        let resetCodeViewController = ResetCodeViewController(viewModel: viewModel.resetCodeViewModel)
+        resetCodeViewController.delegate = self
+        navigationController?.pushViewController(resetCodeViewController, animated: true)
     }
 
     @IBAction func handleKeypadButtonPressed(_ sender: KeypadButton) {
@@ -29,10 +45,10 @@ final class PickLockViewController: UIViewController {
         updateUI()
     }
 
-    private func updateUI() {
-        previousGuessHintLabel.text = viewModel.previousGuessHintText
-        previousGuessLabel.text = viewModel.previousGuessText
-        lockStatusLabel.text = viewModel.lockStatusText
-        guessLabel.text = viewModel.currentGuess
+    // MARK: - ResetCodeViewControllerDelegate
+
+    func resetCodeViewController(_ viewController: ResetCodeViewController, didSetNewCode newCode: String) {
+        viewModel.updateCode(newCode: newCode)
+        updateUI()
     }
 }

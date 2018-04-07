@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A46D98DB2079362B004D37A5 /* ResetCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46D98D92079362B004D37A5 /* ResetCodeViewController.swift */; };
+		A46D98DC2079362B004D37A5 /* ResetCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46D98DA2079362B004D37A5 /* ResetCodeViewController.xib */; };
+		A46D98DF20793E22004D37A5 /* ResetCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46D98DE20793E22004D37A5 /* ResetCodeViewModel.swift */; };
 		A481C951206593F20051CA0E /* PickLockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A481C950206593F20051CA0E /* PickLockViewController.xib */; };
 		A481C9752066C48B0051CA0E /* KeypadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481C9742066C48B0051CA0E /* KeypadButton.swift */; };
 		A481C9772066C5BF0051CA0E /* PickLockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A481C9762066C5BF0051CA0E /* PickLockViewModel.swift */; };
@@ -31,6 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A46D98D92079362B004D37A5 /* ResetCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetCodeViewController.swift; sourceTree = "<group>"; };
+		A46D98DA2079362B004D37A5 /* ResetCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetCodeViewController.xib; sourceTree = "<group>"; };
+		A46D98DE20793E22004D37A5 /* ResetCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetCodeViewModel.swift; sourceTree = "<group>"; };
 		A481C950206593F20051CA0E /* PickLockViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickLockViewController.xib; sourceTree = "<group>"; };
 		A481C9742066C48B0051CA0E /* KeypadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadButton.swift; sourceTree = "<group>"; };
 		A481C9762066C5BF0051CA0E /* PickLockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickLockViewModel.swift; sourceTree = "<group>"; };
@@ -66,6 +72,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A46D98DD2079362E004D37A5 /* Reset Code */ = {
+			isa = PBXGroup;
+			children = (
+				A46D98DE20793E22004D37A5 /* ResetCodeViewModel.swift */,
+				A46D98D92079362B004D37A5 /* ResetCodeViewController.swift */,
+				A46D98DA2079362B004D37A5 /* ResetCodeViewController.xib */,
+			);
+			path = "Reset Code";
+			sourceTree = "<group>";
+		};
 		A481C9732066C47C0051CA0E /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +114,7 @@
 				A4B0A8EE2064096D000FB6AA /* AppDelegate.swift */,
 				A4B0A90F20640AFB000FB6AA /* Models */,
 				A4B0A90E20640A45000FB6AA /* Pick Lock */,
+				A46D98DD2079362E004D37A5 /* Reset Code */,
 				A4B0A8F52064096D000FB6AA /* Assets.xcassets */,
 				A4B0A8F72064096D000FB6AA /* LaunchScreen.storyboard */,
 				A4B0A8FA2064096D000FB6AA /* Info.plist */,
@@ -219,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A481C951206593F20051CA0E /* PickLockViewController.xib in Resources */,
+				A46D98DC2079362B004D37A5 /* ResetCodeViewController.xib in Resources */,
 				A4B0A8F92064096D000FB6AA /* LaunchScreen.storyboard in Resources */,
 				A4B0A8F62064096D000FB6AA /* Assets.xcassets in Resources */,
 			);
@@ -240,8 +258,10 @@
 			files = (
 				A4B0A8F12064096D000FB6AA /* PickLockViewController.swift in Sources */,
 				A481C9752066C48B0051CA0E /* KeypadButton.swift in Sources */,
+				A46D98DB2079362B004D37A5 /* ResetCodeViewController.swift in Sources */,
 				A4B0A91120640B12000FB6AA /* Lock.swift in Sources */,
 				A4B0A91320640B31000FB6AA /* GuessResult.swift in Sources */,
+				A46D98DF20793E22004D37A5 /* ResetCodeViewModel.swift in Sources */,
 				A481C9772066C5BF0051CA0E /* PickLockViewModel.swift in Sources */,
 				A4B0A8EF2064096D000FB6AA /* AppDelegate.swift in Sources */,
 			);

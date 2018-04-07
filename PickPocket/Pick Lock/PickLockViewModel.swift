@@ -12,8 +12,7 @@ struct PickLockViewModel {
 
     private typealias PreviousGuess = (guess: String, result: GuessResult)
 
-    private let lock: Lock
-
+    private var lock: Lock
     private var previousGuess: PreviousGuess?
 
     private(set) var currentGuess = ""
@@ -38,6 +37,10 @@ struct PickLockViewModel {
         return isUnlocked ? "🔓" : "🔒"
     }
 
+    var resetCodeViewModel: ResetCodeViewModel {
+        return ResetCodeViewModel(code: lock.code)
+    }
+
     init(lock: Lock = Lock(code: "123")) {
         self.lock = lock
     }
@@ -55,6 +58,10 @@ struct PickLockViewModel {
             previousGuess = (guess: currentGuess, result: result)
             currentGuess = ""
         }
+    }
+
+    mutating func updateCode(newCode: String) {
+        lock = Lock(code: newCode)
     }
 }
 
