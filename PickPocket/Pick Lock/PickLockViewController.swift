@@ -16,7 +16,7 @@ final class PickLockViewController: UIViewController, UITableViewDataSource {
     @IBOutlet private weak var codeLengthLabel: UILabel!
     @IBOutlet private weak var guessLabel: UILabel!
 
-    private var viewModel = PickLockViewModel()
+    private var viewModel: PickLockViewModel
 
     init(viewModel: PickLockViewModel) {
         self.viewModel = viewModel
@@ -35,11 +35,6 @@ final class PickLockViewController: UIViewController, UITableViewDataSource {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Exit", style: .plain, target: self, action: #selector(handleExitButtonPressed))
 
         setupTableView()
-        updateUI()
-    }
-
-    @IBAction func handleKeypadButtonPressed(_ sender: KeypadButton) {
-        viewModel.handleDigitAdded(digit: sender.digit)
         updateUI()
     }
 
@@ -68,6 +63,15 @@ final class PickLockViewController: UIViewController, UITableViewDataSource {
 
     @IBAction func handleResetButtonPressed(_ sender: UIButton) {
         viewModel.handlePreviousGuessesCleared()
+        updateUI()
+    }
+
+    @IBAction func handleKeypadButtonPressed(_ sender: KeypadButton) {
+        viewModel.handleDigitAdded(digit: sender.digit) {
+            DispatchQueue.main.async {
+                self.updateUI()
+            }
+        }
         updateUI()
     }
     

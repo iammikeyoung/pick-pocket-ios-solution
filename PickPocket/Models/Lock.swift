@@ -7,9 +7,15 @@
 //
 
 import Foundation
+import Intrepid
 
-struct Lock {
-    private let code: String
+protocol Lock {
+    var codeLength: Int { get }
+    func submit(guess: String, completion: @escaping (Result<GuessResult>) -> Void)
+}
+
+struct LocalLock: Lock {
+    let code: String
 
     var codeLength: Int {
         return code.count
@@ -19,7 +25,7 @@ struct Lock {
         self.code = code
     }
 
-    func submit(guess: String) -> GuessResult {
+    func submit(guess: String, completion: @escaping (Result<GuessResult>) -> Void) {
         var correct = 0
         var misplaced = 0
         var codeUnmatched = [Character: Int]()
@@ -47,6 +53,18 @@ struct Lock {
             }
         }
 
-        return GuessResult(correct: correct, misplaced: misplaced)
+        completion(.success(GuessResult(correct: correct, misplaced: misplaced)))
+    }
+}
+
+struct RemoteLock: Lock {
+    var codeLength: Int {
+        return 3
+    }
+
+    let requestManager = RequestManager()
+
+    func submit(guess: String, completion: @escaping (Result<GuessResult>) -> Void) {
+        requestManager.post(guess: guess, userID: "Paul", completion: completion)
     }
 }

@@ -55,10 +55,10 @@
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="Iqb-Gd-sj9"/>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="60" estimatedRowHeight="60" sectionHeaderHeight="52" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="bxn-K8-fCR">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="60" sectionHeaderHeight="52" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="bxn-K8-fCR">
                     <rect key="frame" x="0.0" y="66" width="375" height="601"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="separatorColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="4E4-yy-Cea"/>

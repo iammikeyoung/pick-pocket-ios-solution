@@ -14,11 +14,11 @@ struct ChooseOpponentViewModel {
 
     init() {
         let localOpponents = [
-            Opponent(userID: "Mr. Robot", lock: Lock(code: "111"))
+            Opponent(userID: "Mr. Robot", lock: LocalLock(code: "111"))
         ]
 
         let remoteOpponents = [
-            Opponent(userID: "Addie", lock: Lock(code: "456"))
+            Opponent(userID: "Addie", lock: RemoteLock())
         ]
 
         opponents = [

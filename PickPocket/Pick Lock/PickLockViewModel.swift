@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct PickLockViewModel {
+class PickLockViewModel {
 
     let title: String
 
@@ -21,6 +21,10 @@ struct PickLockViewModel {
 
     private var isUnlocked: Bool {
         return previousGuesses.first?.result.isCorrect(codeLength: lock.codeLength) ?? false
+    }
+
+    private var canEnterDigits: Bool {
+        return currentGuess.count != lock.codeLength
     }
 
     var previousGuessCount: Int {
@@ -39,28 +43,32 @@ struct PickLockViewModel {
         return isUnlocked ? UIColor.lightGray : UIColor.init(white: 0.9, alpha: 1)
     }
 
-    init(opponent: Opponent) {
+    convenience init(opponent: Opponent) {
         self.init(title: "\(opponent.userID)'s Lock", lock: opponent.lock)
     }
 
-    init(title: String = "", lock: Lock = Lock(code: "123")) {
+    init(title: String = "", lock: Lock) {
         self.title = title
         self.lock = lock
     }
 
-    mutating func handleDigitAdded(digit: String) {
-        guard !isUnlocked else { return }
+    func handleDigitAdded(digit: String, guessSubmitCompletion: @escaping () -> Void) {
+        guard !isUnlocked && canEnterDigits else { return }
 
         currentGuess += digit
 
-        if currentGuess.count == lock.codeLength {
-            let result = lock.submit(guess: currentGuess)
-            previousGuesses.insert(PreviousGuess(guess: currentGuess, result: result), at: 0)
-            currentGuess = ""
+        if currentGuess.count >= lock.codeLength {
+            lock.submit(guess: currentGuess) { result in
+                if case .success(let guessResult) = result {
+                    self.previousGuesses.insert(PreviousGuess(guess: self.currentGuess, result: guessResult), at: 0)
+                    self.currentGuess = ""
+                }
+                guessSubmitCompletion()
+            }
         }
     }
 
-    mutating func handlePreviousGuessesCleared() {
+    func handlePreviousGuessesCleared() {
         reset()
     }
 
@@ -69,7 +77,7 @@ struct PickLockViewModel {
         return (hint: guess.result.hintText, guess: guess.guess)
     }
 
-    private mutating func reset() {
+    private func reset() {
         previousGuesses = []
         currentGuess = ""
     }
