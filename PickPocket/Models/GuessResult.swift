@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct GuessResult {
+struct GuessResult: Decodable {
+    enum CodingKeys: String, CodingKey {
+        case correct
+        case misplaced = "close"
+    }
+
     let correct: Int
     let misplaced: Int
 }
