@@ -95,22 +95,6 @@ class PickLockViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.lockStatusText, "🔒")
         XCTAssertEqual(viewModel.currentGuess, "2")
     }
-<<<<<<< HEAD
-=======
-
-    func testCreateResetCodeViewModel() {
-        let resetCodeViewModel = viewModel.resetCodeViewModel
-        XCTAssertEqual(resetCodeViewModel.previousCode, lock.code)
-    }
-
-    func testUpdateCode() {
-        viewModel.updateCode(newCode: "4567")
-
-        XCTAssertEqual(viewModel.previousGuessCount, 0)
-        XCTAssertEqual(viewModel.codeLength, "4")
-        XCTAssertEqual(viewModel.lockStatusText, "🔒")
-        XCTAssertEqual(viewModel.currentGuess, "")
-    }
 
     func testManyIncorrectGuesses() {
         let guesses = ["152", "164", "456", "243", "124", "234", "264", "564"]
@@ -130,25 +114,6 @@ class PickLockViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.previousGuessCount, 4)
     }
 
-    func testResetWhileGuessing() {
-        let firstGuesses = ["152", "164", "456", "243", "124", "234", "264", "564"]
-        firstGuesses.flatMap { return $0.components(separatedBy: "") }.forEach {
-            viewModel.handleDigitAdded(digit: $0)
-        }
-
-        XCTAssertEqual(viewModel.previousGuessCount, firstGuesses.count)
-
-        viewModel.updateCode(newCode: "111")
-        XCTAssertEqual(viewModel.previousGuessCount, 0)
-
-        let secondGuesses = ["152", "164", "456"]
-        secondGuesses.flatMap { return $0.components(separatedBy: "") }.forEach {
-            viewModel.handleDigitAdded(digit: $0)
-        }
-        
-        XCTAssertEqual(viewModel.previousGuessCount, secondGuesses.count)
-    }
-
     func testClear() {
         let guesses = ["152", "164", "456", "243", "124", "234", "264", "564"]
         guesses.flatMap { return $0.components(separatedBy: "") }.forEach {
@@ -163,5 +128,4 @@ class PickLockViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.lockStatusText, "🔒")
         XCTAssertEqual(viewModel.currentGuess, "")
     }
->>>>>>> a15ed02... Implement Step 3 Part 2b: Add list of previous guesses, clear button, and update tests
 }
