@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3E91C6091889E41D5C458E57 /* Pods_PickPocketTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1AD1EBFD7521F2A8352CBF8 /* Pods_PickPocketTests.framework */; };
+		A40DAEC0207AF36E00CE8D40 /* ChooseOpponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40DAEBE207AF36E00CE8D40 /* ChooseOpponentViewController.swift */; };
+		A40DAEC1207AF36E00CE8D40 /* ChooseOpponentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A40DAEBF207AF36E00CE8D40 /* ChooseOpponentViewController.xib */; };
+		A40DAEC4207AF5CE00CE8D40 /* ChooseOpponentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40DAEC3207AF5CE00CE8D40 /* ChooseOpponentViewModel.swift */; };
+		A40DAEC6207AF5EC00CE8D40 /* Opponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40DAEC5207AF5EC00CE8D40 /* Opponent.swift */; };
+		A40DAEC9207AF8AB00CE8D40 /* ChooseOpponentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40DAEC7207AF8AB00CE8D40 /* ChooseOpponentTableViewCell.swift */; };
+		A40DAECA207AF8AB00CE8D40 /* ChooseOpponentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A40DAEC8207AF8AB00CE8D40 /* ChooseOpponentTableViewCell.xib */; };
 		A45D0491207ADB56002A0BC9 /* ServerResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D0490207ADB56002A0BC9 /* ServerResponseTests.swift */; };
 		A45D0496207AE374002A0BC9 /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D0495207AE374002A0BC9 /* RequestTests.swift */; };
 		A45D0498207AE3DA002A0BC9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D0497207AE3DA002A0BC9 /* Request.swift */; };
@@ -44,6 +50,12 @@
 		2A18CED30DBD0E462D20740C /* Pods-PickPocketTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickPocketTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PickPocketTests/Pods-PickPocketTests.release.xcconfig"; sourceTree = "<group>"; };
 		47C5480DF648CA91D32F4128 /* Pods-PickPocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickPocket.release.xcconfig"; path = "Pods/Target Support Files/Pods-PickPocket/Pods-PickPocket.release.xcconfig"; sourceTree = "<group>"; };
 		870C5F0175674E7B7EC6B00E /* Pods-PickPocket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickPocket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickPocket/Pods-PickPocket.debug.xcconfig"; sourceTree = "<group>"; };
+		A40DAEBE207AF36E00CE8D40 /* ChooseOpponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseOpponentViewController.swift; sourceTree = "<group>"; };
+		A40DAEBF207AF36E00CE8D40 /* ChooseOpponentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseOpponentViewController.xib; sourceTree = "<group>"; };
+		A40DAEC3207AF5CE00CE8D40 /* ChooseOpponentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseOpponentViewModel.swift; sourceTree = "<group>"; };
+		A40DAEC5207AF5EC00CE8D40 /* Opponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opponent.swift; sourceTree = "<group>"; };
+		A40DAEC7207AF8AB00CE8D40 /* ChooseOpponentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseOpponentTableViewCell.swift; sourceTree = "<group>"; };
+		A40DAEC8207AF8AB00CE8D40 /* ChooseOpponentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseOpponentTableViewCell.xib; sourceTree = "<group>"; };
 		A45D0490207ADB56002A0BC9 /* ServerResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponseTests.swift; sourceTree = "<group>"; };
 		A45D0495207AE374002A0BC9 /* RequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
 		A45D0497207AE3DA002A0BC9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -110,6 +122,27 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A40DAEC2207AF37200CE8D40 /* Choose Opponent */ = {
+			isa = PBXGroup;
+			children = (
+				A40DAECB207AF8B200CE8D40 /* View */,
+				A40DAEC5207AF5EC00CE8D40 /* Opponent.swift */,
+				A40DAEC3207AF5CE00CE8D40 /* ChooseOpponentViewModel.swift */,
+				A40DAEBE207AF36E00CE8D40 /* ChooseOpponentViewController.swift */,
+				A40DAEBF207AF36E00CE8D40 /* ChooseOpponentViewController.xib */,
+			);
+			path = "Choose Opponent";
+			sourceTree = "<group>";
+		};
+		A40DAECB207AF8B200CE8D40 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A40DAEC7207AF8AB00CE8D40 /* ChooseOpponentTableViewCell.swift */,
+				A40DAEC8207AF8AB00CE8D40 /* ChooseOpponentTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A45D0493207ADF6D002A0BC9 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +198,7 @@
 				A4B0A8EE2064096D000FB6AA /* AppDelegate.swift */,
 				A46D98E9207ACFA2004D37A5 /* Networking */,
 				A4B0A90F20640AFB000FB6AA /* Models */,
+				A40DAEC2207AF37200CE8D40 /* Choose Opponent */,
 				A4B0A90E20640A45000FB6AA /* Pick Lock */,
 				A4B0A8F52064096D000FB6AA /* Assets.xcassets */,
 				A4B0A8F72064096D000FB6AA /* LaunchScreen.storyboard */,
@@ -296,7 +330,9 @@
 				A481C951206593F20051CA0E /* PickLockViewController.xib in Resources */,
 				A4B0A8F92064096D000FB6AA /* LaunchScreen.storyboard in Resources */,
 				A4B0A8F62064096D000FB6AA /* Assets.xcassets in Resources */,
+				A40DAEC1207AF36E00CE8D40 /* ChooseOpponentViewController.xib in Resources */,
 				A46D98E5207954E5004D37A5 /* PickLockTableViewCell.xib in Resources */,
+				A40DAECA207AF8AB00CE8D40 /* ChooseOpponentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,11 +456,15 @@
 			files = (
 				A4B0A8F12064096D000FB6AA /* PickLockViewController.swift in Sources */,
 				A481C9752066C48B0051CA0E /* KeypadButton.swift in Sources */,
+				A40DAEC6207AF5EC00CE8D40 /* Opponent.swift in Sources */,
 				A4B0A91120640B12000FB6AA /* Lock.swift in Sources */,
 				A4B0A91320640B31000FB6AA /* GuessResult.swift in Sources */,
 				A45D0498207AE3DA002A0BC9 /* Request.swift in Sources */,
 				A46D98E8207ACF99004D37A5 /* RequestManager.swift in Sources */,
+				A40DAEC9207AF8AB00CE8D40 /* ChooseOpponentTableViewCell.swift in Sources */,
 				A46D98EB207ACFE3004D37A5 /* PickLock.swift in Sources */,
+				A40DAEC0207AF36E00CE8D40 /* ChooseOpponentViewController.swift in Sources */,
+				A40DAEC4207AF5CE00CE8D40 /* ChooseOpponentViewModel.swift in Sources */,
 				A46D98E4207954E5004D37A5 /* PickLockTableViewCell.swift in Sources */,
 				A481C9772066C5BF0051CA0E /* PickLockViewModel.swift in Sources */,
 				A4B0A8EF2064096D000FB6AA /* AppDelegate.swift in Sources */,

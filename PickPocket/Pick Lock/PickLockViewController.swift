@@ -18,9 +18,22 @@ final class PickLockViewController: UIViewController, UITableViewDataSource {
 
     private var viewModel = PickLockViewModel()
 
+    init(viewModel: PickLockViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         codeLengthLabel.text = viewModel.codeLength
+
+        title = viewModel.title
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Exit", style: .plain, target: self, action: #selector(handleExitButtonPressed))
+
         setupTableView()
         updateUI()
     }
@@ -48,6 +61,10 @@ final class PickLockViewController: UIViewController, UITableViewDataSource {
     }
 
     // MARK: - Actions
+
+    @objc private func handleExitButtonPressed() {
+        navigationController?.popViewController(animated: true)
+    }
 
     @IBAction func handleResetButtonPressed(_ sender: UIButton) {
         viewModel.handlePreviousGuessesCleared()

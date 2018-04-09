@@ -10,6 +10,8 @@ import UIKit
 
 struct PickLockViewModel {
 
+    let title: String
+
     private typealias PreviousGuess = (guess: String, result: GuessResult)
 
     private let lock: Lock
@@ -37,7 +39,12 @@ struct PickLockViewModel {
         return isUnlocked ? UIColor.lightGray : UIColor.init(white: 0.9, alpha: 1)
     }
 
-    init(lock: Lock = Lock(code: "123")) {
+    init(opponent: Opponent) {
+        self.init(title: "\(opponent.userID)'s Lock", lock: opponent.lock)
+    }
+
+    init(title: String = "", lock: Lock = Lock(code: "123")) {
+        self.title = title
         self.lock = lock
     }
 
