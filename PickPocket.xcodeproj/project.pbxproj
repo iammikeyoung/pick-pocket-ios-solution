@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E91C6091889E41D5C458E57 /* Pods_PickPocketTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1AD1EBFD7521F2A8352CBF8 /* Pods_PickPocketTests.framework */; };
 		A46D98E4207954E5004D37A5 /* PickLockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46D98E2207954E5004D37A5 /* PickLockTableViewCell.swift */; };
 		A46D98E5207954E5004D37A5 /* PickLockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46D98E3207954E5004D37A5 /* PickLockTableViewCell.xib */; };
 		A481C951206593F20051CA0E /* PickLockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A481C950206593F20051CA0E /* PickLockViewController.xib */; };
@@ -20,6 +21,7 @@
 		A4B0A91120640B12000FB6AA /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0A91020640B12000FB6AA /* Lock.swift */; };
 		A4B0A91320640B31000FB6AA /* GuessResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0A91220640B31000FB6AA /* GuessResult.swift */; };
 		A4C8CD1F2075BCA20084633F /* PickLockViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8CD1E2075BCA20084633F /* PickLockViewModelTests.swift */; };
+		E73E14A2FE07F60AAF690181 /* Pods_PickPocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E706E7D1690271EB272DAA7 /* Pods_PickPocket.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E706E7D1690271EB272DAA7 /* Pods_PickPocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickPocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A18CED30DBD0E462D20740C /* Pods-PickPocketTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickPocketTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PickPocketTests/Pods-PickPocketTests.release.xcconfig"; sourceTree = "<group>"; };
+		47C5480DF648CA91D32F4128 /* Pods-PickPocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickPocket.release.xcconfig"; path = "Pods/Target Support Files/Pods-PickPocket/Pods-PickPocket.release.xcconfig"; sourceTree = "<group>"; };
+		870C5F0175674E7B7EC6B00E /* Pods-PickPocket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickPocket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickPocket/Pods-PickPocket.debug.xcconfig"; sourceTree = "<group>"; };
 		A46D98E2207954E5004D37A5 /* PickLockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PickLockTableViewCell.swift; path = ../View/PickLockTableViewCell.swift; sourceTree = "<group>"; };
 		A46D98E3207954E5004D37A5 /* PickLockTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PickLockTableViewCell.xib; path = ../View/PickLockTableViewCell.xib; sourceTree = "<group>"; };
 		A481C950206593F20051CA0E /* PickLockViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickLockViewController.xib; sourceTree = "<group>"; };
@@ -50,6 +56,8 @@
 		A4B0A91020640B12000FB6AA /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
 		A4B0A91220640B31000FB6AA /* GuessResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessResult.swift; sourceTree = "<group>"; };
 		A4C8CD1E2075BCA20084633F /* PickLockViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickLockViewModelTests.swift; sourceTree = "<group>"; };
+		C1AD1EBFD7521F2A8352CBF8 /* Pods_PickPocketTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickPocketTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D007494672962FA3930291E4 /* Pods-PickPocketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickPocketTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickPocketTests/Pods-PickPocketTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E73E14A2FE07F60AAF690181 /* Pods_PickPocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,16 +73,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E91C6091889E41D5C458E57 /* Pods_PickPocketTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-        A46D98E6207954EA004D37A5 /* View */ = {
-            isa = PBXGroup;
-            children = (
-                A481C9742066C48B0051CA0E /* KeypadButton.swift */,
+		37B968C21486D12D566F8D2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E706E7D1690271EB272DAA7 /* Pods_PickPocket.framework */,
+				C1AD1EBFD7521F2A8352CBF8 /* Pods_PickPocketTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		98F302BE3710E506731515A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				870C5F0175674E7B7EC6B00E /* Pods-PickPocket.debug.xcconfig */,
+				47C5480DF648CA91D32F4128 /* Pods-PickPocket.release.xcconfig */,
+				D007494672962FA3930291E4 /* Pods-PickPocketTests.debug.xcconfig */,
+				2A18CED30DBD0E462D20740C /* Pods-PickPocketTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A46D98E6207954EA004D37A5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A481C9742066C48B0051CA0E /* KeypadButton.swift */,
 				A46D98E2207954E5004D37A5 /* PickLockTableViewCell.swift */,
 				A46D98E3207954E5004D37A5 /* PickLockTableViewCell.xib */,
 			);
@@ -86,6 +116,8 @@
 				A4B0A8ED2064096D000FB6AA /* PickPocket */,
 				A4B0A9022064096D000FB6AA /* PickPocketTests */,
 				A4B0A8EC2064096D000FB6AA /* Products */,
+				98F302BE3710E506731515A6 /* Pods */,
+				37B968C21486D12D566F8D2F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,9 +180,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4B0A9082064096D000FB6AA /* Build configuration list for PBXNativeTarget "PickPocket" */;
 			buildPhases = (
+				1DE5FD273C9A4F1A6E1236E2 /* [CP] Check Pods Manifest.lock */,
 				A4B0A8E72064096D000FB6AA /* Sources */,
 				A4B0A8E82064096D000FB6AA /* Frameworks */,
 				A4B0A8E92064096D000FB6AA /* Resources */,
+				7FFFB237D754CF9FF1AB4042 /* [CP] Embed Pods Frameworks */,
+				AC6EA50B8C0EE78389E83418 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -165,9 +200,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4B0A90B2064096D000FB6AA /* Build configuration list for PBXNativeTarget "PickPocketTests" */;
 			buildPhases = (
+				96199CF87FC9DF84A70E1214 /* [CP] Check Pods Manifest.lock */,
 				A4B0A8FB2064096D000FB6AA /* Sources */,
 				A4B0A8FC2064096D000FB6AA /* Frameworks */,
 				A4B0A8FD2064096D000FB6AA /* Resources */,
+				012E3DE6E079369BCBB8A505 /* [CP] Embed Pods Frameworks */,
+				B661316D3E631F9D614B7400 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -240,6 +278,110 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		012E3DE6E079369BCBB8A505 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PickPocketTests/Pods-PickPocketTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1DE5FD273C9A4F1A6E1236E2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PickPocket-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FFFB237D754CF9FF1AB4042 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PickPocket/Pods-PickPocket-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IP-UIKit-Wisdom/IP_UIKit_Wisdom.framework",
+				"${BUILT_PRODUCTS_DIR}/Intrepid/Intrepid.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IP_UIKit_Wisdom.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Intrepid.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PickPocket/Pods-PickPocket-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96199CF87FC9DF84A70E1214 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PickPocketTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC6EA50B8C0EE78389E83418 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PickPocket/Pods-PickPocket-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B661316D3E631F9D614B7400 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PickPocketTests/Pods-PickPocketTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A4B0A8E72064096D000FB6AA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -249,7 +391,7 @@
 				A481C9752066C48B0051CA0E /* KeypadButton.swift in Sources */,
 				A4B0A91120640B12000FB6AA /* Lock.swift in Sources */,
 				A4B0A91320640B31000FB6AA /* GuessResult.swift in Sources */,
-                A46D98E4207954E5004D37A5 /* PickLockTableViewCell.swift in Sources */,
+				A46D98E4207954E5004D37A5 /* PickLockTableViewCell.swift in Sources */,
 				A481C9772066C5BF0051CA0E /* PickLockViewModel.swift in Sources */,
 				A4B0A8EF2064096D000FB6AA /* AppDelegate.swift in Sources */,
 			);
@@ -395,6 +537,7 @@
 		};
 		A4B0A9092064096D000FB6AA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 870C5F0175674E7B7EC6B00E /* Pods-PickPocket.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -411,6 +554,7 @@
 		};
 		A4B0A90A2064096D000FB6AA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47C5480DF648CA91D32F4128 /* Pods-PickPocket.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -427,6 +571,7 @@
 		};
 		A4B0A90C2064096D000FB6AA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D007494672962FA3930291E4 /* Pods-PickPocketTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -444,6 +589,7 @@
 		};
 		A4B0A90D2064096D000FB6AA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A18CED30DBD0E462D20740C /* Pods-PickPocketTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
