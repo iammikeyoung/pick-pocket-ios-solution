@@ -1,5 +1,5 @@
 //
-//  ChooseOpponentTableViewCell.swift
+//  UserListTableViewCell.swift
 //  PickPocket
 //
 //  Created by Maya Saxena on 4/8/18.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ChooseOpponentTableViewCell: UITableViewCell {
-    static let identifier = String(describing: ChooseOpponentTableViewCell.self)
+class UserListTableViewCell: UITableViewCell {
+    static let identifier = String(describing: UserListTableViewCell.self)
 
     @IBOutlet private weak var userIDLabel: UILabel!
 

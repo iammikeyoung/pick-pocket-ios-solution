@@ -58,11 +58,8 @@ struct LocalLock: Lock {
 }
 
 struct RemoteLock: Lock {
-    var codeLength: Int {
-        return 3
-    }
-
-    let requestManager = RequestManager()
+    private let requestManager = RequestManager()
+    let codeLength: Int
 
     func submit(guess: String, completion: @escaping (Result<GuessResult>) -> Void) {
         requestManager.post(guess: guess, userID: "Paul", completion: completion)

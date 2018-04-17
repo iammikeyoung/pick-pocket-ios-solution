@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class PickLockViewController: UIViewController, UITableViewDataSource {
+final class PickLockViewController: UserInitializableViewController, UITableViewDataSource {
 
     @IBOutlet private weak var previousGuessesTableView: UITableView!
     @IBOutlet private weak var readoutView: UIView!
@@ -18,9 +18,9 @@ final class PickLockViewController: UIViewController, UITableViewDataSource {
 
     private var viewModel: PickLockViewModel
 
-    init(viewModel: PickLockViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+    required init(user: User) {
+        self.viewModel = PickLockViewModel(user: user)
+        super.init(user: user)
     }
 
     required init?(coder aDecoder: NSCoder) {
