@@ -25,6 +25,13 @@
 		A4B0A9042064096D000FB6AA /* LockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0A9032064096D000FB6AA /* LockTests.swift */; };
 		A4B0A91120640B12000FB6AA /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0A91020640B12000FB6AA /* Lock.swift */; };
 		A4B0A91320640B31000FB6AA /* GuessResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0A91220640B31000FB6AA /* GuessResult.swift */; };
+		A4BFB02E208673C70058E5FB /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFB024208673C70058E5FB /* UserListViewModel.swift */; };
+		A4BFB02F208673C70058E5FB /* UserListRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFB026208673C70058E5FB /* UserListRequestManager.swift */; };
+		A4BFB030208673C70058E5FB /* UserListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4BFB027208673C70058E5FB /* UserListViewController.xib */; };
+		A4BFB031208673C70058E5FB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFB029208673C70058E5FB /* User.swift */; };
+		A4BFB032208673C70058E5FB /* UserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4BFB02B208673C70058E5FB /* UserListTableViewCell.xib */; };
+		A4BFB033208673C70058E5FB /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFB02C208673C70058E5FB /* UserListTableViewCell.swift */; };
+		A4BFB034208673C70058E5FB /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BFB02D208673C70058E5FB /* UserListViewController.swift */; };
 		A4C8CD1F2075BCA20084633F /* PickLockViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C8CD1E2075BCA20084633F /* PickLockViewModelTests.swift */; };
 		E73E14A2FE07F60AAF690181 /* Pods_PickPocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E706E7D1690271EB272DAA7 /* Pods_PickPocket.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +72,13 @@
 		A4B0A9052064096D000FB6AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4B0A91020640B12000FB6AA /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
 		A4B0A91220640B31000FB6AA /* GuessResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessResult.swift; sourceTree = "<group>"; };
+		A4BFB024208673C70058E5FB /* UserListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		A4BFB026208673C70058E5FB /* UserListRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListRequestManager.swift; sourceTree = "<group>"; };
+		A4BFB027208673C70058E5FB /* UserListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserListViewController.xib; sourceTree = "<group>"; };
+		A4BFB029208673C70058E5FB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A4BFB02B208673C70058E5FB /* UserListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserListTableViewCell.xib; sourceTree = "<group>"; };
+		A4BFB02C208673C70058E5FB /* UserListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
+		A4BFB02D208673C70058E5FB /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		A4C8CD1E2075BCA20084633F /* PickLockViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickLockViewModelTests.swift; sourceTree = "<group>"; };
 		C1AD1EBFD7521F2A8352CBF8 /* Pods_PickPocketTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickPocketTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D007494672962FA3930291E4 /* Pods-PickPocketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickPocketTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickPocketTests/Pods-PickPocketTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +180,7 @@
 				A46D98E9207ACFA2004D37A5 /* Networking */,
 				A4B0A90F20640AFB000FB6AA /* Models */,
 				A4B0A90E20640A45000FB6AA /* Pick Lock */,
+				A4BFB023208673C70058E5FB /* User List */,
 				A4B0A8F52064096D000FB6AA /* Assets.xcassets */,
 				A4B0A8F72064096D000FB6AA /* LaunchScreen.storyboard */,
 				A4B0A8FA2064096D000FB6AA /* Info.plist */,
@@ -202,6 +217,44 @@
 				A4B0A91220640B31000FB6AA /* GuessResult.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A4BFB023208673C70058E5FB /* User List */ = {
+			isa = PBXGroup;
+			children = (
+				A4BFB025208673C70058E5FB /* Networking */,
+				A4BFB028208673C70058E5FB /* Model */,
+				A4BFB02A208673C70058E5FB /* View */,
+				A4BFB024208673C70058E5FB /* UserListViewModel.swift */,
+				A4BFB02D208673C70058E5FB /* UserListViewController.swift */,
+				A4BFB027208673C70058E5FB /* UserListViewController.xib */,
+			);
+			path = "User List";
+			sourceTree = "<group>";
+		};
+		A4BFB025208673C70058E5FB /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A4BFB026208673C70058E5FB /* UserListRequestManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		A4BFB028208673C70058E5FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A4BFB029208673C70058E5FB /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A4BFB02A208673C70058E5FB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A4BFB02B208673C70058E5FB /* UserListTableViewCell.xib */,
+				A4BFB02C208673C70058E5FB /* UserListTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,8 +348,10 @@
 			files = (
 				A481C951206593F20051CA0E /* PickLockViewController.xib in Resources */,
 				A4B0A8F92064096D000FB6AA /* LaunchScreen.storyboard in Resources */,
+				A4BFB032208673C70058E5FB /* UserListTableViewCell.xib in Resources */,
 				A4B0A8F62064096D000FB6AA /* Assets.xcassets in Resources */,
 				A46D98E5207954E5004D37A5 /* PickLockTableViewCell.xib in Resources */,
+				A4BFB030208673C70058E5FB /* UserListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,11 +473,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4BFB031208673C70058E5FB /* User.swift in Sources */,
 				A4B0A8F12064096D000FB6AA /* PickLockViewController.swift in Sources */,
+				A4BFB02E208673C70058E5FB /* UserListViewModel.swift in Sources */,
 				A481C9752066C48B0051CA0E /* KeypadButton.swift in Sources */,
 				A4B0A91120640B12000FB6AA /* Lock.swift in Sources */,
+				A4BFB034208673C70058E5FB /* UserListViewController.swift in Sources */,
 				A4B0A91320640B31000FB6AA /* GuessResult.swift in Sources */,
+				A4BFB033208673C70058E5FB /* UserListTableViewCell.swift in Sources */,
 				A45D0498207AE3DA002A0BC9 /* Request.swift in Sources */,
+				A4BFB02F208673C70058E5FB /* UserListRequestManager.swift in Sources */,
 				A46D98E8207ACF99004D37A5 /* RequestManager.swift in Sources */,
 				A46D98EB207ACFE3004D37A5 /* PickLock.swift in Sources */,
 				A46D98E4207954E5004D37A5 /* PickLockTableViewCell.swift in Sources */,

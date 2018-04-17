@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class PickLockViewController: UIViewController, UITableViewDataSource {
+final class PickLockViewController: UserInitializableViewController, UITableViewDataSource {
 
     @IBOutlet private weak var previousGuessesTableView: UITableView!
     @IBOutlet private weak var readoutView: UIView!
@@ -18,9 +18,9 @@ final class PickLockViewController: UIViewController, UITableViewDataSource {
 
     private var viewModel: PickLockViewModel
 
-    init() {
-        viewModel = PickLockViewModel(title: "Local Lock", lock: LocalLock(code: "456"))
-        super.init(nibName: nil, bundle: nil)
+    required init(user: User) {
+        self.viewModel = PickLockViewModel(user: user)
+        super.init(user: user)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -32,6 +32,7 @@ final class PickLockViewController: UIViewController, UITableViewDataSource {
         codeLengthLabel.text = viewModel.codeLength
 
         title = viewModel.title
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Exit", style: .plain, target: self, action: #selector(handleExitButtonPressed))
 
         setupTableView()
         updateUI()
@@ -55,6 +56,10 @@ final class PickLockViewController: UIViewController, UITableViewDataSource {
     }
 
     // MARK: - Actions
+
+    @objc private func handleExitButtonPressed() {
+        navigationController?.popViewController(animated: true)
+    }
 
     @IBAction func handleResetButtonPressed(_ sender: UIButton) {
         viewModel.handlePreviousGuessesCleared()
