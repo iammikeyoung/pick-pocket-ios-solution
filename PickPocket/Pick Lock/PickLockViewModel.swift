@@ -43,9 +43,9 @@ class PickLockViewModel {
         return isUnlocked ? UIColor.lightGray : UIColor.init(white: 0.9, alpha: 1)
     }
 
-    init(user: User) {
-        self.lock = user.lock
-        self.title = "\(user.userID)'s Lock"
+    init(title: String, lock: Lock) {
+        self.title = title
+        self.lock = lock
     }
 
     func handleDigitAdded(digit: String, guessSubmitCompletion: @escaping () -> Void) {
@@ -86,15 +86,5 @@ private extension GuessResult {
 
     func isCorrect(codeLength: Int) -> Bool {
         return correct == codeLength && misplaced == 0
-    }
-}
-
-private extension User {
-    var lock: Lock {
-        if let localUser = self as? LocalUser {
-            return LocalLock(code: localUser.code)
-        } else {
-            return RemoteLock(codeLength: codeLength)
-        }
     }
 }
