@@ -11,6 +11,10 @@ import Foundation
 struct Lock {
     private let code: String
 
+    var codeLength: Int {
+        return code.count
+    }
+
     init(code: String) {
         self.code = code
     }

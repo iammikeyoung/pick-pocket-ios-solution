@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A47B3C3520C86849004642EE /* PickLockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B3C3420C86849004642EE /* PickLockViewModel.swift */; };
+		A47B3C3920C86A64004642EE /* KeypadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B3C3820C86A64004642EE /* KeypadButton.swift */; };
 		A481C951206593F20051CA0E /* PickLockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A481C950206593F20051CA0E /* PickLockViewController.xib */; };
+		A49F2D2520C871F20002E38E /* PickLockViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F2D2420C871F20002E38E /* PickLockViewModelTests.swift */; };
 		A4B0A8EF2064096D000FB6AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0A8EE2064096D000FB6AA /* AppDelegate.swift */; };
 		A4B0A8F12064096D000FB6AA /* PickLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0A8F02064096D000FB6AA /* PickLockViewController.swift */; };
 		A4B0A8F62064096D000FB6AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4B0A8F52064096D000FB6AA /* Assets.xcassets */; };
@@ -28,7 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A47B3C3420C86849004642EE /* PickLockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickLockViewModel.swift; sourceTree = "<group>"; };
+		A47B3C3820C86A64004642EE /* KeypadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadButton.swift; sourceTree = "<group>"; };
 		A481C950206593F20051CA0E /* PickLockViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickLockViewController.xib; sourceTree = "<group>"; };
+		A49F2D2420C871F20002E38E /* PickLockViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickLockViewModelTests.swift; sourceTree = "<group>"; };
 		A4B0A8EB2064096D000FB6AA /* PickPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B0A8EE2064096D000FB6AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4B0A8F02064096D000FB6AA /* PickLockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickLockViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +66,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A47B3C3A20C86A69004642EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A47B3C3820C86A64004642EE /* KeypadButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A4B0A8E22064096D000FB6AA = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				A4B0A9032064096D000FB6AA /* LockTests.swift */,
+				A49F2D2420C871F20002E38E /* PickLockViewModelTests.swift */,
 				A4B0A9052064096D000FB6AA /* Info.plist */,
 			);
 			path = PickPocketTests;
@@ -103,6 +118,8 @@
 		A4B0A90E20640A45000FB6AA /* Pick Lock */ = {
 			isa = PBXGroup;
 			children = (
+				A47B3C3A20C86A69004642EE /* View */,
+				A47B3C3420C86849004642EE /* PickLockViewModel.swift */,
 				A4B0A8F02064096D000FB6AA /* PickLockViewController.swift */,
 				A481C950206593F20051CA0E /* PickLockViewController.xib */,
 			);
@@ -222,9 +239,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4B0A8F12064096D000FB6AA /* PickLockViewController.swift in Sources */,
+				A47B3C3920C86A64004642EE /* KeypadButton.swift in Sources */,
 				A4B0A91120640B12000FB6AA /* Lock.swift in Sources */,
 				A4B0A91320640B31000FB6AA /* GuessResult.swift in Sources */,
 				A4B0A8EF2064096D000FB6AA /* AppDelegate.swift in Sources */,
+				A47B3C3520C86849004642EE /* PickLockViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A49F2D2520C871F20002E38E /* PickLockViewModelTests.swift in Sources */,
 				A4B0A9042064096D000FB6AA /* LockTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
