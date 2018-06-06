@@ -43,6 +43,10 @@ final class PickLockViewController: UIViewController, PickLockViewModelDelegate,
         viewModel.handleDigitAdded(sender.digit)
     }
 
+    @IBAction func handleResetButtonPressed(_ sender: UIButton) {
+        viewModel.handleReset()
+    }
+
     // MARK: - UITableViewDataSource
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

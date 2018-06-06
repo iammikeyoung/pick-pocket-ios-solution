@@ -78,6 +78,12 @@ class PickLockViewModel {
         let guess = previousGuesses[index]
         return (hint: guess.result.hintText, guess: guess.code)
     }
+
+    func handleReset() {
+        currentGuess = ""
+        previousGuesses = []
+        isUnlocked = false
+    }
 }
 
 extension GuessResult {

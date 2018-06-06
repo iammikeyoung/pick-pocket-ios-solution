@@ -56,13 +56,17 @@ final class PickLockViewModelTests: XCTestCase {
         XCTAssertEqual(receivedCurrentGuessText, "12")
 
         viewModel.handleDigitAdded("3")
-        XCTAssertTrue(didReceivePreviousGuessesUpdate)
+
+        verifyUpdatesReceived(
+            expectedPreviousGuessUpdate: true,
+            lockStatusText: "🔓",
+            readoutColor: .unlockedReadoutColor,
+            isKeypadEnabled: false,
+            currentGuessText: ""
+        )
+
         XCTAssertEqual(viewModel.previousGuessCount, 1)
         verify(expectedHint: "⚫⚫⚫", expectedGuess: "123", atIndex: 0)
-        XCTAssertEqual(receivedReadoutColor, UIColor.unlockedReadoutColor)
-        XCTAssertEqual(receivedLockStatusText, "🔓")
-        XCTAssertEqual(receivedCurrentGuessText, "")
-        XCTAssertEqual(receivedIsKeypadEnabled, false)
     }
 
     func testIncorrectGuess() {
@@ -73,13 +77,17 @@ final class PickLockViewModelTests: XCTestCase {
         verifyNoLockStatusUpdatesReceived()
 
         viewModel.handleDigitAdded("4")
-        XCTAssertTrue(didReceivePreviousGuessesUpdate)
+
+        verifyUpdatesReceived(
+            expectedPreviousGuessUpdate: true,
+            lockStatusText: "🔒",
+            readoutColor: .lockedReadoutColor,
+            isKeypadEnabled: true,
+            currentGuessText: ""
+        )
+
         XCTAssertEqual(viewModel.previousGuessCount, 1)
         verify(expectedHint: "⚫⚪", expectedGuess: "134", atIndex: 0)
-        XCTAssertEqual(receivedReadoutColor, UIColor.lockedReadoutColor)
-        XCTAssertEqual(receivedLockStatusText, "🔒")
-        XCTAssertEqual(receivedCurrentGuessText, "")
-        XCTAssertEqual(receivedIsKeypadEnabled, true)
     }
 
     func testSequentialGuesses() {
@@ -97,23 +105,33 @@ final class PickLockViewModelTests: XCTestCase {
         viewModel.handleDigitAdded("2")
         viewModel.handleDigitAdded("3")
 
-        XCTAssertTrue(didReceivePreviousGuessesUpdate)
+        verifyUpdatesReceived(
+            expectedPreviousGuessUpdate: true,
+            lockStatusText: "🔓",
+            readoutColor: .unlockedReadoutColor,
+            isKeypadEnabled: false,
+            currentGuessText: ""
+        )
+
         XCTAssertEqual(viewModel.previousGuessCount, 2)
         verify(expectedHint: "⚫⚫⚫", expectedGuess: "123", atIndex: 0)
-        XCTAssertEqual(receivedLockStatusText, "🔓")
-        XCTAssertEqual(receivedCurrentGuessText, "")
     }
 
-    func testCannotGuessAfterUnlock() {
+    func testGuessAfterUnlock() {
         viewModel.handleDigitAdded("1")
         viewModel.handleDigitAdded("2")
         viewModel.handleDigitAdded("3")
 
-        XCTAssertTrue(didReceivePreviousGuessesUpdate)
+        verifyUpdatesReceived(
+            expectedPreviousGuessUpdate: true,
+            lockStatusText: "🔓",
+            readoutColor: .unlockedReadoutColor,
+            isKeypadEnabled: false,
+            currentGuessText: ""
+        )
+
         XCTAssertEqual(viewModel.previousGuessCount, 1)
         verify(expectedHint: "⚫⚫⚫", expectedGuess: "123", atIndex: 0)
-        XCTAssertEqual(receivedLockStatusText, "🔓")
-        XCTAssertEqual(receivedCurrentGuessText, "")
 
         didReceivePreviousGuessesUpdate = false
         receivedLockStatusText = nil
@@ -122,8 +140,26 @@ final class PickLockViewModelTests: XCTestCase {
 
         viewModel.handleDigitAdded("2")
 
+        // Should not update without reset
         verifyNoLockStatusUpdatesReceived()
         XCTAssertNil(receivedCurrentGuessText)
+
+        viewModel.handleReset()
+
+        verifyUpdatesReceived(
+            expectedPreviousGuessUpdate: true,
+            lockStatusText: "🔒",
+            readoutColor: .lockedReadoutColor,
+            isKeypadEnabled: true,
+            currentGuessText: ""
+        )
+
+        XCTAssertEqual(viewModel.previousGuessCount, 0)
+
+        viewModel.handleDigitAdded("2")
+
+        // Should update after reset
+        XCTAssertEqual(receivedCurrentGuessText, "2")
     }
 
     func testManyGuesses() {
@@ -156,6 +192,21 @@ final class PickLockViewModelTests: XCTestCase {
         XCTAssertFalse(didReceivePreviousGuessesUpdate, file: file, line: line)
         XCTAssertNil(receivedLockStatusText, file: file, line: line)
         XCTAssertNil(receivedIsKeypadEnabled, file: file, line: line)
+    }
+
+    private func verifyUpdatesReceived(expectedPreviousGuessUpdate: Bool,
+                                       lockStatusText: String,
+                                       readoutColor: UIColor,
+                                       isKeypadEnabled: Bool,
+                                       currentGuessText: String,
+                                       file: StaticString = #file,
+                                       line: UInt = #line) {
+
+        XCTAssertEqual(didReceivePreviousGuessesUpdate, expectedPreviousGuessUpdate, file: file, line: line)
+        XCTAssertEqual(receivedLockStatusText, lockStatusText, file: file, line: line)
+        XCTAssertEqual(receivedReadoutColor, readoutColor, file: file, line: line)
+        XCTAssertEqual(receivedIsKeypadEnabled, isKeypadEnabled, file: file, line: line)
+        XCTAssertEqual(receivedCurrentGuessText, currentGuessText, file: file, line: line)
     }
 
     private func verify(expectedHint: String,
