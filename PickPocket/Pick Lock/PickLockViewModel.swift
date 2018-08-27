@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PickLockViewModelDelegate: class {
-    func pickLockViewModelDidUpdate(previousGuessHintText: String, previousGuessText: String)
+    func pickLockViewModelDidUpdatePreviousGuesses()
     func pickLockViewModelDidUpdate(readoutColor: UIColor)
     func pickLockViewModelDidUpdate(lockStatusText: String)
     func pickLockViewModelDidUpdate(codeLengthText: String)
@@ -17,7 +17,7 @@ protocol PickLockViewModelDelegate: class {
     func pickLockViewModelDidUpdate(isKeypadEnabled: Bool)
 }
 
-struct PickLockViewModel {
+class PickLockViewModel {
     private typealias PreviousGuess = (code: String, result: GuessResult)
 
     private let lock: Lock
@@ -36,13 +36,14 @@ struct PickLockViewModel {
         }
     }
 
-    private var previousGuess: PreviousGuess? {
+    private var previousGuesses = [PreviousGuess]() {
         didSet {
-            delegate?.pickLockViewModelDidUpdate(
-                previousGuessHintText: previousGuess?.result.hintText ?? "",
-                previousGuessText: previousGuess?.code ?? ""
-            )
+            delegate?.pickLockViewModelDidUpdatePreviousGuesses()
         }
+    }
+
+    var previousGuessCount: Int {
+        return previousGuesses.count
     }
 
     weak var delegate: PickLockViewModelDelegate?
@@ -51,31 +52,35 @@ struct PickLockViewModel {
         self.lock = lock
     }
 
-    mutating func handleViewDidLoad() {
+    func handleViewDidLoad() {
         delegate?.pickLockViewModelDidUpdate(codeLengthText: String(lock.codeLength))
-        previousGuess = nil
         currentGuess = ""
     }
 
-    mutating func handleDigitAdded(_ digit: String) {
+    func handleDigitAdded(_ digit: String) {
         guard !isUnlocked else { return }
 
         currentGuess += digit
         submitGuessIfNecessary()
     }
 
-    private mutating func submitGuessIfNecessary() {
+    private func submitGuessIfNecessary() {
         guard currentGuess.count == lock.codeLength else { return }
 
         let result = lock.submit(guess: currentGuess)
 
         isUnlocked = result.correct == lock.codeLength && result.misplaced == 0
-        previousGuess = (code: currentGuess, result: result)
+        previousGuesses.insert(PreviousGuess(code: currentGuess, result: result), at: 0)
         currentGuess = ""
+    }
+
+    func hintAndGuess(atIndex index: Int) -> (hint: String, guess: String) {
+        let guess = previousGuesses[index]
+        return (hint: guess.result.hintText, guess: guess.code)
     }
 }
 
-private extension GuessResult {
+extension GuessResult {
     var hintText: String {
         return String(repeating: "⚫", count: correct) + String(repeating: "⚪", count: misplaced)
     }

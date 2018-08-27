@@ -8,33 +8,62 @@
 
 import UIKit
 
-final class PickLockViewController: UIViewController, PickLockViewModelDelegate {
+final class PickLockViewController: UIViewController, PickLockViewModelDelegate, UITableViewDataSource {
 
-    @IBOutlet private weak var previousGuessHintLabel: UILabel!
-    @IBOutlet private weak var previousGuessLabel: UILabel!
+    @IBOutlet private weak var previousGuessesTableView: UITableView!
     @IBOutlet private weak var readoutView: UIView!
     @IBOutlet private weak var lockStatusLabel: UILabel!
     @IBOutlet private weak var codeLengthLabel: UILabel!
     @IBOutlet private weak var currentGuessLabel: UILabel!
     @IBOutlet private weak var keypadView: UIStackView!
 
-    private var viewModel = PickLockViewModel()
+    private let viewModel = PickLockViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         viewModel.delegate = self
         viewModel.handleViewDidLoad()
+        setupTableView()
     }
+
+    private func setupTableView() {
+        previousGuessesTableView.register(
+            UINib(nibName: String(describing: PickLockTableViewCell.self), bundle: nil),
+            forCellReuseIdentifier: PickLockTableViewCell.identifier
+        )
+
+        // Make the table view populate from bottom to top
+        previousGuessesTableView.transform = CGAffineTransform(scaleX: 1, y: -1)
+    }
+
+    // MARK: - Actions
 
     @IBAction func handleKeypadButtonPressed(_ sender: KeypadButton) {
         viewModel.handleDigitAdded(sender.digit)
     }
 
+    // MARK: - UITableViewDataSource
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.previousGuessCount
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let dequeuedCell = tableView.dequeueReusableCell(withIdentifier: PickLockTableViewCell.identifier, for: indexPath)
+
+        guard let cell = dequeuedCell as? PickLockTableViewCell else { return dequeuedCell }
+
+        let (hint, guess) = viewModel.hintAndGuess(atIndex: indexPath.row)
+        cell.configure(hint: hint, guess: guess)
+
+        return cell
+    }
+
     // MARK: - PickLockViewModelDelegate
 
-    func pickLockViewModelDidUpdate(previousGuessHintText: String, previousGuessText: String) {
-        previousGuessHintLabel.text = previousGuessHintText
-        previousGuessLabel.text = previousGuessText
+    func pickLockViewModelDidUpdatePreviousGuesses() {
+        previousGuessesTableView.reloadData()
     }
 
     func pickLockViewModelDidUpdate(readoutColor: UIColor) {

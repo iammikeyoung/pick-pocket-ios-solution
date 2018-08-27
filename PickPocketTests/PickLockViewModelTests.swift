@@ -13,8 +13,7 @@ final class PickLockViewModelTests: XCTestCase {
     let lock = Lock(code: "123")
     var viewModel: PickLockViewModel!
 
-    var receivedPreviousGuessHintText: String?
-    var receivedPreviousGuessText: String?
+    var didReceivePreviousGuessesUpdate = false
     var receivedReadoutColor: UIColor?
     var receivedLockStatusText: String?
     var receivedCodeLengthText: String?
@@ -30,8 +29,7 @@ final class PickLockViewModelTests: XCTestCase {
     override func tearDown() {
         viewModel = nil
 
-        receivedPreviousGuessText = nil
-        receivedPreviousGuessHintText = nil
+        didReceivePreviousGuessesUpdate = false
         receivedReadoutColor = nil
         receivedLockStatusText = nil
         receivedCodeLengthText = nil
@@ -41,19 +39,10 @@ final class PickLockViewModelTests: XCTestCase {
         super.tearDown()
     }
 
-    private func verifyNoLockStatusUpdatesReceived(file: StaticString = #file, line: UInt = #line) {
-        XCTAssertNil(receivedPreviousGuessHintText, file: file, line: line)
-        XCTAssertNil(receivedPreviousGuessText, file: file, line: line)
-        XCTAssertNil(receivedLockStatusText, file: file, line: line)
-        XCTAssertNil(receivedIsKeypadEnabled, file: file, line: line)
-    }
-
     func testHandleViewDidLoad() {
         viewModel.handleViewDidLoad()
 
         XCTAssertEqual(receivedCodeLengthText, "3")
-        XCTAssertEqual(receivedPreviousGuessHintText, "")
-        XCTAssertEqual(receivedPreviousGuessText, "")
         XCTAssertEqual(receivedCurrentGuessText, "")
     }
 
@@ -67,8 +56,9 @@ final class PickLockViewModelTests: XCTestCase {
         XCTAssertEqual(receivedCurrentGuessText, "12")
 
         viewModel.handleDigitAdded("3")
-        XCTAssertEqual(receivedPreviousGuessHintText, "⚫⚫⚫")
-        XCTAssertEqual(receivedPreviousGuessText, "123")
+        XCTAssertTrue(didReceivePreviousGuessesUpdate)
+        XCTAssertEqual(viewModel.previousGuessCount, 1)
+        verify(expectedHint: "⚫⚫⚫", expectedGuess: "123", atIndex: 0)
         XCTAssertEqual(receivedReadoutColor, UIColor.unlockedReadoutColor)
         XCTAssertEqual(receivedLockStatusText, "🔓")
         XCTAssertEqual(receivedCurrentGuessText, "")
@@ -83,8 +73,9 @@ final class PickLockViewModelTests: XCTestCase {
         verifyNoLockStatusUpdatesReceived()
 
         viewModel.handleDigitAdded("4")
-        XCTAssertEqual(receivedPreviousGuessHintText, "⚫⚪")
-        XCTAssertEqual(receivedPreviousGuessText, "134")
+        XCTAssertTrue(didReceivePreviousGuessesUpdate)
+        XCTAssertEqual(viewModel.previousGuessCount, 1)
+        verify(expectedHint: "⚫⚪", expectedGuess: "134", atIndex: 0)
         XCTAssertEqual(receivedReadoutColor, UIColor.lockedReadoutColor)
         XCTAssertEqual(receivedLockStatusText, "🔒")
         XCTAssertEqual(receivedCurrentGuessText, "")
@@ -94,22 +85,21 @@ final class PickLockViewModelTests: XCTestCase {
     func testSequentialGuesses() {
         testIncorrectGuess()
 
-        let previousGuessHintText = receivedPreviousGuessHintText
-        let previousGuessText = receivedPreviousGuessText
+        let initialPreviousGuessCount = viewModel.previousGuessCount
         let lockStatusText = receivedLockStatusText
 
         viewModel.handleDigitAdded("1")
 
-        // Verify that previous guess indicators have not changed
-        XCTAssertEqual(previousGuessHintText, receivedPreviousGuessHintText)
-        XCTAssertEqual(previousGuessText, receivedPreviousGuessText)
+        // Verify that new guess has not been added to list
+        XCTAssertEqual(viewModel.previousGuessCount, initialPreviousGuessCount)
         XCTAssertEqual(lockStatusText, receivedLockStatusText)
 
         viewModel.handleDigitAdded("2")
         viewModel.handleDigitAdded("3")
 
-        XCTAssertEqual(receivedPreviousGuessHintText, "⚫⚫⚫")
-        XCTAssertEqual(receivedPreviousGuessText, "123")
+        XCTAssertTrue(didReceivePreviousGuessesUpdate)
+        XCTAssertEqual(viewModel.previousGuessCount, 2)
+        verify(expectedHint: "⚫⚫⚫", expectedGuess: "123", atIndex: 0)
         XCTAssertEqual(receivedLockStatusText, "🔓")
         XCTAssertEqual(receivedCurrentGuessText, "")
     }
@@ -119,13 +109,13 @@ final class PickLockViewModelTests: XCTestCase {
         viewModel.handleDigitAdded("2")
         viewModel.handleDigitAdded("3")
 
-        XCTAssertEqual(receivedPreviousGuessHintText, "⚫⚫⚫")
-        XCTAssertEqual(receivedPreviousGuessText, "123")
+        XCTAssertTrue(didReceivePreviousGuessesUpdate)
+        XCTAssertEqual(viewModel.previousGuessCount, 1)
+        verify(expectedHint: "⚫⚫⚫", expectedGuess: "123", atIndex: 0)
         XCTAssertEqual(receivedLockStatusText, "🔓")
         XCTAssertEqual(receivedCurrentGuessText, "")
 
-        receivedPreviousGuessHintText = nil
-        receivedPreviousGuessText = nil
+        didReceivePreviousGuessesUpdate = false
         receivedLockStatusText = nil
         receivedIsKeypadEnabled = nil
         receivedCurrentGuessText = nil
@@ -135,12 +125,53 @@ final class PickLockViewModelTests: XCTestCase {
         verifyNoLockStatusUpdatesReceived()
         XCTAssertNil(receivedCurrentGuessText)
     }
+
+    func testManyGuesses() {
+        let hintsAndGuesses = ["152", "164", "456", "243", "124", "234", "264", "564"].map {
+            return (lock.submit(guess: $0).hintText, $0)
+        }
+
+        hintsAndGuesses.enumerated().forEach { (index, element) in
+            let (expectedHint, expectedGuess) = element
+            expectedGuess.components(separatedBy: "").forEach { viewModel.handleDigitAdded($0) }
+
+            XCTAssertEqual(viewModel.previousGuessCount, index + 1)
+
+            let (hint, guess) = viewModel.hintAndGuess(atIndex: 0)
+            XCTAssertEqual(hint, expectedHint)
+            XCTAssertEqual(guess, expectedGuess)
+        }
+    }
+
+    func testManyGuessesWithOneCorrect() {
+        let guesses = ["152", "164", "456", "123", "124", "234", "264", "564"]
+        guesses.flatMap { return $0.components(separatedBy: "") }.forEach {
+            viewModel.handleDigitAdded($0)
+        }
+
+        XCTAssertEqual(viewModel.previousGuessCount, 4)
+    }
+
+    private func verifyNoLockStatusUpdatesReceived(file: StaticString = #file, line: UInt = #line) {
+        XCTAssertFalse(didReceivePreviousGuessesUpdate, file: file, line: line)
+        XCTAssertNil(receivedLockStatusText, file: file, line: line)
+        XCTAssertNil(receivedIsKeypadEnabled, file: file, line: line)
+    }
+
+    private func verify(expectedHint: String,
+                        expectedGuess: String,
+                        atIndex index: Int,
+                        file: StaticString = #file,
+                        line: UInt = #line) {
+        let (hint, guess) = viewModel.hintAndGuess(atIndex: index)
+        XCTAssertEqual(hint, expectedHint, file: file, line: line)
+        XCTAssertEqual(guess, expectedGuess, file: file, line: line)
+    }
 }
 
 extension PickLockViewModelTests: PickLockViewModelDelegate {
-    func pickLockViewModelDidUpdate(previousGuessHintText: String, previousGuessText: String) {
-        receivedPreviousGuessHintText = previousGuessHintText
-        receivedPreviousGuessText = previousGuessText
+    func pickLockViewModelDidUpdatePreviousGuesses() {
+        didReceivePreviousGuessesUpdate = true
     }
 
     func pickLockViewModelDidUpdate(readoutColor: UIColor) {
