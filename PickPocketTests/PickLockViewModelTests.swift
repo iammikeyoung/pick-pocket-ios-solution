@@ -10,7 +10,7 @@
 import XCTest
 
 final class PickLockViewModelTests: XCTestCase {
-    let lock = Lock(code: "123")
+    let lock = LocalLock(code: "123")
     var viewModel: PickLockViewModel!
 
     var didReceivePreviousGuessesUpdate = false
@@ -49,10 +49,12 @@ final class PickLockViewModelTests: XCTestCase {
     func testCorrectGuess() {
         viewModel.handleDigitAdded("1")
         verifyNoLockStatusUpdatesReceived()
+        XCTAssertEqual(receivedIsKeypadEnabled, true)
         XCTAssertEqual(receivedCurrentGuessText, "1")
 
         viewModel.handleDigitAdded("2")
         verifyNoLockStatusUpdatesReceived()
+        XCTAssertEqual(receivedIsKeypadEnabled, true)
         XCTAssertEqual(receivedCurrentGuessText, "12")
 
         viewModel.handleDigitAdded("3")
@@ -72,9 +74,11 @@ final class PickLockViewModelTests: XCTestCase {
     func testIncorrectGuess() {
         viewModel.handleDigitAdded("1")
         verifyNoLockStatusUpdatesReceived()
+        XCTAssertEqual(receivedIsKeypadEnabled, true)
 
         viewModel.handleDigitAdded("3")
         verifyNoLockStatusUpdatesReceived()
+        XCTAssertEqual(receivedIsKeypadEnabled, true)
 
         viewModel.handleDigitAdded("4")
 
@@ -163,9 +167,7 @@ final class PickLockViewModelTests: XCTestCase {
     }
 
     func testManyGuesses() {
-        let hintsAndGuesses = ["152", "164", "456", "243", "124", "234", "264", "564"].map {
-            return (lock.submit(guess: $0).hintText, $0)
-        }
+        let hintsAndGuesses = [("⚫⚪", "152"), ("⚫", "164"), ("", "456"), ("⚫⚪", "243"), ("⚫⚫", "124"), ("⚪⚪", "234"), ("⚪", "264"), ("", "564")]
 
         hintsAndGuesses.enumerated().forEach { (index, element) in
             let (expectedHint, expectedGuess) = element
@@ -191,7 +193,6 @@ final class PickLockViewModelTests: XCTestCase {
     private func verifyNoLockStatusUpdatesReceived(file: StaticString = #file, line: UInt = #line) {
         XCTAssertFalse(didReceivePreviousGuessesUpdate, file: file, line: line)
         XCTAssertNil(receivedLockStatusText, file: file, line: line)
-        XCTAssertNil(receivedIsKeypadEnabled, file: file, line: line)
     }
 
     private func verifyUpdatesReceived(expectedPreviousGuessUpdate: Bool,

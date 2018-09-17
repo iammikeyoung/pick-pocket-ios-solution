@@ -67,26 +67,38 @@ final class PickLockViewController: UIViewController, PickLockViewModelDelegate,
     // MARK: - PickLockViewModelDelegate
 
     func pickLockViewModelDidUpdatePreviousGuesses() {
-        previousGuessesTableView.reloadData()
+        DispatchQueue.main.async {
+            self.previousGuessesTableView.reloadData()
+        }
     }
 
     func pickLockViewModelDidUpdate(readoutColor: UIColor) {
-        readoutView.backgroundColor = readoutColor
+        DispatchQueue.main.async {
+            self.readoutView.backgroundColor = readoutColor
+        }
     }
 
     func pickLockViewModelDidUpdate(lockStatusText: String) {
-        lockStatusLabel.text = lockStatusText
+        DispatchQueue.main.async {
+            self.lockStatusLabel.text = lockStatusText
+        }
     }
 
     func pickLockViewModelDidUpdate(codeLengthText: String) {
-        codeLengthLabel.text = codeLengthText
+        DispatchQueue.main.async {
+            self.codeLengthLabel.text = codeLengthText
+        }
     }
 
     func pickLockViewModelDidUpdate(currentGuessText: String) {
-        currentGuessLabel.text = currentGuessText
+        DispatchQueue.main.async {
+            self.currentGuessLabel.text = currentGuessText
+        }
     }
 
     func pickLockViewModelDidUpdate(isKeypadEnabled: Bool) {
-        keypadView.isUserInteractionEnabled = isKeypadEnabled
+        DispatchQueue.main.async {
+            self.keypadView.isUserInteractionEnabled = isKeypadEnabled
+        }
     }
 }

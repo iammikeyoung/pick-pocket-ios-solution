@@ -15,11 +15,13 @@ enum RequestManagerError: Error {
     case unknown(message: String?)
 }
 
-struct RequestManager {
+protocol RequestManagerType {
+    func post(guess: String, userID: String, completion: @escaping ((Result<GuessResult>) -> Void))
+}
 
-    func post(guess: String,
-              userID: String,
-              completion: @escaping ((Result<GuessResult>) -> Void)) {
+struct RequestManager: RequestManagerType {
+
+    func post(guess: String, userID: String, completion: @escaping ((Result<GuessResult>) -> Void)) {
 
         let urlRequest = Request.pickLock(guess: guess, userID: userID).urlRequest
 

@@ -7,8 +7,18 @@
 //
 
 import Foundation
+import Intrepid
 
-struct Lock {
+protocol Lock {
+    var codeLength: Int { get }
+    func submit(guess: String, completion: @escaping (Result<GuessResult>) -> Void)
+}
+
+enum LocalLockError: Error {
+    case guessLengthMismatch
+}
+
+struct LocalLock: Lock {
     private let code: String
 
     var codeLength: Int {
@@ -19,11 +29,16 @@ struct Lock {
         self.code = code
     }
 
-    func submit(guess: String) -> GuessResult {
+    func submit(guess: String, completion: @escaping (Result<GuessResult>) -> Void) {
         var correct = 0
         var misplaced = 0
         var codeUnmatched = [Character: Int]()
         var guessUnmatched = [Character: Int]()
+
+        guard codeLength == guess.count else {
+            completion(.failure(LocalLockError.guessLengthMismatch))
+            return
+        }
 
         zip(code, guess).forEach { (codeCharacter, guessCharacter) in
             if codeCharacter == guessCharacter {
@@ -47,6 +62,23 @@ struct Lock {
             }
         }
 
-        return GuessResult(correct: correct, misplaced: misplaced)
+        completion(.success(GuessResult(correct: correct, misplaced: misplaced)))
+    }
+}
+
+struct RemoteLock: Lock {
+    private let requestManager: RequestManagerType
+    private let userID: String
+
+    let codeLength: Int
+
+    init(userID: String = "Paul", codeLength: Int = 3, requestManager: RequestManagerType = RequestManager()) {
+        self.requestManager = requestManager
+        self.userID = userID
+        self.codeLength = codeLength
+    }
+
+    func submit(guess: String, completion: @escaping (Result<GuessResult>) -> Void) {
+        requestManager.post(guess: guess, userID: userID, completion: completion)
     }
 }

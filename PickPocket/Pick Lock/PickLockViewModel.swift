@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Intrepid
 
 protocol PickLockViewModelDelegate: class {
     func pickLockViewModelDidUpdatePreviousGuesses()
@@ -48,7 +49,7 @@ class PickLockViewModel {
 
     weak var delegate: PickLockViewModelDelegate?
 
-    init(lock: Lock = Lock(code: "123")) {
+    init(lock: Lock = RemoteLock()) {
         self.lock = lock
     }
 
@@ -61,16 +62,23 @@ class PickLockViewModel {
         guard !isUnlocked else { return }
 
         currentGuess += digit
+        delegate?.pickLockViewModelDidUpdate(isKeypadEnabled: currentGuess.count < lock.codeLength)
+
         submitGuessIfNecessary()
     }
 
     private func submitGuessIfNecessary() {
         guard currentGuess.count == lock.codeLength else { return }
 
-        let result = lock.submit(guess: currentGuess)
+        lock.submit(guess: currentGuess) { [weak self] result in
+            guard let guessResult = result.value else { return }
+            self?.update(with: guessResult)
+        }
+    }
 
-        isUnlocked = result.correct == lock.codeLength && result.misplaced == 0
-        previousGuesses.insert(PreviousGuess(code: currentGuess, result: result), at: 0)
+    private func update(with guessResult: GuessResult) {
+        isUnlocked = guessResult.correct == lock.codeLength && guessResult.misplaced == 0
+        previousGuesses.insert(PreviousGuess(code: currentGuess, result: guessResult), at: 0)
         currentGuess = ""
     }
 
@@ -86,7 +94,7 @@ class PickLockViewModel {
     }
 }
 
-extension GuessResult {
+private extension GuessResult {
     var hintText: String {
         return String(repeating: "⚫", count: correct) + String(repeating: "⚪", count: misplaced)
     }

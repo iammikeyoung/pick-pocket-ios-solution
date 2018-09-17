@@ -93,10 +93,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU5-TI-eU1">
-                            <rect key="frame" x="141" y="32.5" width="60" height="0.0"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="60" id="RMN-9r-rex"/>
-                            </constraints>
+                            <rect key="frame" x="65" y="32.5" width="212" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="34"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -112,13 +109,12 @@
                     </subviews>
                     <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="OU5-TI-eU1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Fer-xW-09u" secondAttribute="trailing" constant="15" id="27i-oL-4BX"/>
                         <constraint firstItem="dfW-j2-rgd" firstAttribute="centerX" secondItem="Fer-xW-09u" secondAttribute="centerX" id="6P8-Cc-54p"/>
                         <constraint firstItem="dfW-j2-rgd" firstAttribute="firstBaseline" secondItem="Fer-xW-09u" secondAttribute="baseline" constant="-1" id="8iU-cV-TLa"/>
+                        <constraint firstItem="OU5-TI-eU1" firstAttribute="leading" secondItem="Fer-xW-09u" secondAttribute="trailing" constant="15" id="BKz-RM-FSf"/>
                         <constraint firstItem="OU5-TI-eU1" firstAttribute="centerX" secondItem="UsD-wr-RDW" secondAttribute="centerX" id="GyO-TP-SMP"/>
                         <constraint firstAttribute="trailing" secondItem="YXT-HD-FCf" secondAttribute="trailing" constant="12" id="LWt-51-8hW"/>
                         <constraint firstItem="OU5-TI-eU1" firstAttribute="centerY" secondItem="UsD-wr-RDW" secondAttribute="centerY" id="Pwy-UK-WSF"/>
-                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OU5-TI-eU1" secondAttribute="trailing" constant="15" id="dAe-99-2cY"/>
                         <constraint firstItem="OU5-TI-eU1" firstAttribute="centerX" secondItem="UsD-wr-RDW" secondAttribute="centerX" id="fIE-II-StT"/>
                         <constraint firstItem="Fer-xW-09u" firstAttribute="leading" secondItem="UsD-wr-RDW" secondAttribute="leading" constant="12" id="qbz-7o-cC1"/>
                         <constraint firstItem="YXT-HD-FCf" firstAttribute="centerY" secondItem="UsD-wr-RDW" secondAttribute="centerY" id="riV-fE-Hhw"/>
