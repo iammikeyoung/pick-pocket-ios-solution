@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		63BE270D71BE29BE12051FE9 /* Pods_PickPocketTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6839CC506E440872DEC52636 /* Pods_PickPocketTests.framework */; };
+		A43013C2214C3A4000D52184 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43013C1214C3A4000D52184 /* RequestManager.swift */; };
+		A43013C5214C56B700D52184 /* PickLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43013C4214C56B700D52184 /* PickLock.swift */; };
+		A43013C7214FEE5D00D52184 /* RequestManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43013C6214FEE5D00D52184 /* RequestManagerTests.swift */; };
+		A43013CA214FF21700D52184 /* PickLockResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43013C9214FF21700D52184 /* PickLockResponseTests.swift */; };
 		A46D98E4207954E5004D37A5 /* PickLockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46D98E2207954E5004D37A5 /* PickLockTableViewCell.swift */; };
 		A46D98E5207954E5004D37A5 /* PickLockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A46D98E3207954E5004D37A5 /* PickLockTableViewCell.xib */; };
 		A47B3C3520C86849004642EE /* PickLockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47B3C3420C86849004642EE /* PickLockViewModel.swift */; };
@@ -41,6 +45,10 @@
 		7031B96EAC1B2646933BEEB3 /* Pods-PickPocket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickPocket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickPocket/Pods-PickPocket.debug.xcconfig"; sourceTree = "<group>"; };
 		824FDAB4FBDD76FE22D3F134 /* Pods-PickPocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickPocket.release.xcconfig"; path = "Pods/Target Support Files/Pods-PickPocket/Pods-PickPocket.release.xcconfig"; sourceTree = "<group>"; };
 		8AEC2D9A16B81737F1E6735A /* Pods-PickPocketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickPocketTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickPocketTests/Pods-PickPocketTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A43013C1214C3A4000D52184 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		A43013C4214C56B700D52184 /* PickLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickLock.swift; sourceTree = "<group>"; };
+		A43013C6214FEE5D00D52184 /* RequestManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManagerTests.swift; sourceTree = "<group>"; };
+		A43013C9214FF21700D52184 /* PickLockResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickLockResponseTests.swift; sourceTree = "<group>"; };
 		A46D98E2207954E5004D37A5 /* PickLockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PickLockTableViewCell.swift; path = ../View/PickLockTableViewCell.swift; sourceTree = "<group>"; };
 		A46D98E3207954E5004D37A5 /* PickLockTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PickLockTableViewCell.xib; path = ../View/PickLockTableViewCell.xib; sourceTree = "<group>"; };
 		A47B3C3420C86849004642EE /* PickLockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickLockViewModel.swift; sourceTree = "<group>"; };
@@ -100,6 +108,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A43013C3214C3A4400D52184 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A43013C1214C3A4000D52184 /* RequestManager.swift */,
+				A43013C4214C56B700D52184 /* PickLock.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		A43013C8214FEE6000D52184 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A43013C6214FEE5D00D52184 /* RequestManagerTests.swift */,
+				A43013C9214FF21700D52184 /* PickLockResponseTests.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		A47B3C3A20C86A69004642EE /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +161,7 @@
 			children = (
 				A4B0A8EE2064096D000FB6AA /* AppDelegate.swift */,
 				A4B0A90F20640AFB000FB6AA /* Models */,
+				A43013C3214C3A4400D52184 /* Networking */,
 				A4B0A90E20640A45000FB6AA /* Pick Lock */,
 				A4B0A8F52064096D000FB6AA /* Assets.xcassets */,
 				A4B0A8F72064096D000FB6AA /* LaunchScreen.storyboard */,
@@ -146,6 +173,7 @@
 		A4B0A9022064096D000FB6AA /* PickPocketTests */ = {
 			isa = PBXGroup;
 			children = (
+				A43013C8214FEE6000D52184 /* Networking */,
 				A4B0A9032064096D000FB6AA /* LockTests.swift */,
 				A49F2D2420C871F20002E38E /* PickLockViewModelTests.swift */,
 				A4B0A9052064096D000FB6AA /* Info.plist */,
@@ -280,19 +308,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-        A4E8BAE6214C2B3A0064EE51 /* ShellScript */ = {
-            isa = PBXShellScriptBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            inputPaths = (
-            );
-            outputPaths = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-            shellPath = /bin/sh;
-            shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-        };
 		7D2F635EA50BA63EB4ADD6F3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -307,6 +322,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PickPocketTests/Pods-PickPocketTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		A4E8BAE6214C2B3A0064EE51 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		C034168556AA63B7F5B7B0F3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -404,8 +432,10 @@
 				A4B0A8F12064096D000FB6AA /* PickLockViewController.swift in Sources */,
 				A47B3C3920C86A64004642EE /* KeypadButton.swift in Sources */,
 				A4B0A91120640B12000FB6AA /* Lock.swift in Sources */,
+				A43013C2214C3A4000D52184 /* RequestManager.swift in Sources */,
+				A43013C5214C56B700D52184 /* PickLock.swift in Sources */,
 				A4B0A91320640B31000FB6AA /* GuessResult.swift in Sources */,
-                A46D98E4207954E5004D37A5 /* PickLockTableViewCell.swift in Sources */,
+				A46D98E4207954E5004D37A5 /* PickLockTableViewCell.swift in Sources */,
 				A4B0A8EF2064096D000FB6AA /* AppDelegate.swift in Sources */,
 				A47B3C3520C86849004642EE /* PickLockViewModel.swift in Sources */,
 			);
@@ -417,6 +447,8 @@
 			files = (
 				A49F2D2520C871F20002E38E /* PickLockViewModelTests.swift in Sources */,
 				A4B0A9042064096D000FB6AA /* LockTests.swift in Sources */,
+				A43013C7214FEE5D00D52184 /* RequestManagerTests.swift in Sources */,
+				A43013CA214FF21700D52184 /* PickLockResponseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
